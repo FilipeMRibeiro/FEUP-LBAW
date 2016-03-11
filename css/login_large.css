@@ -26,6 +26,7 @@
   form {
   	font: 13px/2.2em Lato, serif;
   	color: #999;
+    background-color: white;
   }
   	form input,
   	form > button {

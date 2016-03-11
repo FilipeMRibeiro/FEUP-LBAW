@@ -3,7 +3,7 @@
     width: 100%;
     margin-top: 22%;
   }
-  .login-form {
+  .register-form {
   	text-align: center;
     margin-top: 37%;
     margin-right: 25%;
@@ -15,7 +15,7 @@
     border-color: lightgrey;
     padding: 5%;
   }
-  .login-form img {
+  .register-form img {
   		display: block;
   		margin: 0 auto;
   		margin-bottom: 35px;
@@ -23,7 +23,7 @@
   body {
     background-color: #edeeee;
   }
-  .login-form a {
+  .register-form a {
 		color: #054185;
 	}
   body {

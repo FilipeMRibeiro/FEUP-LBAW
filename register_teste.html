@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Pawz</title>
+    <title> Pawz</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login_large.css" rel="stylesheet">
-    <link href="css/login_medium.css" rel="stylesheet">
-    <link href="css/login_small.css" rel="stylesheet">
-    <link href="css/login_extra_small.css" rel="stylesheet">
+    <link href="css/register_large.css" rel="stylesheet">
+    <link href="css/register_medium.css" rel="stylesheet">
+    <link href="css/register_small.css" rel="stylesheet">
+    <link href="css/register_extra_small.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,19 +30,21 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 vcenter">
           <div class="form">
-            <form method="post" action="#" class="login-form">
+            <form method="post" action="" class="register-form">
       				<img src="images/logo.png" alt="logo" class="img-responsive" />
+              <div class="name-group">
+                <input type="name" name="name" required class="form-control" placeholder="Name" />
+              </div>
       				<div class="form-group">
-      					<input type="email" name="email" required class="form-control" placeholder="Email address" />
+      					<input type="email" name="email" required class="form-control" placeholder="Email Address" />
+                <input type="email" name="email" required class="form-control" placeholder=" Confirm Email Address" />
       				</div>
       				<div class="input-group">
       					<input type="password" name="password" required class="form-control" placeholder="Password" />
-      					<span class="input-group-btn">
-      						<button class="btn btn-default" type="button" id="tooltip" data-toggle="tooltip" data-placement="top" title="Forgot password ?">?</button>
-      					</span>
+      					<input type="password" name="password" required class="form-control" placeholder="Confirm Password" />
       				</div>
-      				<button type="submit" name="go" class="btn btn-primary btn-block">Log in</button>
-      				Not yet a member ? <a href="#">Register now</a>
+      				<button type="submit" name="go" class="btn btn-primary btn-block">Register</button>
+      				Already a member ? <a href="#">Log in now</a>
       			</form>
           </div>
         </div>
