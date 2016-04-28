@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/messages_page.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
+
+    <title>Pawz</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-icon" href="#"><img src="images/home.png" height="30" alt="Home"/></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control search-input" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Friends</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Edit Profile</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid main">
+      <div class="row">
+        <div class="col-lg-12 panel panel-default">
+          <h2 class="panel-heading"> Messages </h2>
+          <div class="col-lg-3" style="border-right-style: solid; max-height: 700px;">
+            <div class="panel-content">
+              <div class="row message-box" id="number1">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 1</p>
+                  <p>Lorem Ipsum</p>
+                </div>
+              </div>
+              <div class="row message-box">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 2</p>
+                  <div class="last-message">
+                    <p> Sed a mollis quam. Aliquam semper mi dui, vel accumsan metus  </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row message-box">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 3</p>
+                  <div class="last-message">
+                    <p> Phasellus dapibus, mauris a malesuada ornare, ipsum felis aliquam turpis, </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row message-box">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 4</p>
+                  <div class="last-message">
+                    <p> Vivamus vehicula sed orci ac dapibus.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row message-box">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 5</p>
+                  <div class="last-message">
+                    <p> Nulla ornare ultrices tellus, in malesuada </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row message-box">
+                <div class="col-lg-3 vcenter profile-picture">
+                  <img src="images/sloth.jpg"/>
+                </div>
+                <div class="col-lg-8 vcenter">
+                  <p class="profile-name">Name 6</p>
+                  <div class="last-message">
+                    <p> Donec malesuada lectus nulla, quis eleifend </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="panel-content">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12 panel panel-default" style="min-height:300px;">
+                    <div class="row message">
+                      <div class="col-lg-1 message-profile-picture">
+                        <img src="images/sloth.jpg"/>
+                      </div>
+                      <div class="col-lg-10 message-content">
+                        <p class="profile-name">Name 7</p>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae ligula condimentum, finibus ligula quis, tincidunt urna. Ut varius diam et risus pretium, varius aliquam diam consectetur. Morbi porta aliquam ipsum ut tempus. Cras massa lorem, ornare nec risus et, laoreet iaculis urna. Aliquam eu accumsan lacus. Sed tincidunt, augue ut elementum auctor, ante arcu auctor erat, vitae vulputate tellus nunc eu metus. Nullam dictum tortor ex, nec varius ex varius eu. Sed ac diam purus.  </p>
+                        <p> Lorem ipsum </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <input type="text" class="form-control" style="padding-bottom: 10%; padding-top: 2%;" placeholder="Write a message...">
+                    <button type="submit" class="btn btn-info pull-right"> Send </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

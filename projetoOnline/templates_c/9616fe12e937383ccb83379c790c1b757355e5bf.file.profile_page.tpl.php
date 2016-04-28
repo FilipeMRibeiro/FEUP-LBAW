@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-28 04:03:36
+         compiled from "/opt/lbaw/lbaw1552/public_html/frmk/templates/profile_page.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:31167336657216f789030a2-93349125%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '9616fe12e937383ccb83379c790c1b757355e5bf' => 
+    array (
+      0 => '/opt/lbaw/lbaw1552/public_html/frmk/templates/profile_page.tpl',
+      1 => 1458241611,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '31167336657216f789030a2-93349125',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57216f78990928_21690518',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_57216f78990928_21690518')) {function content_57216f78990928_21690518($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +28,7 @@
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="css/feed_page.css">
+    <link rel="stylesheet" href="css/profile_page.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -59,70 +80,81 @@
 
     <div class="container-fluid main">
       <div class="row">
-        <div class="col-lg-9 col-xs-12 feed-space">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
+          <div class="row">
+            <div class="col-lg-12 profile-image">
+              <img src="images/rex.png" alt="Profile Picture"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 profile-information panel panel-default">
+              <p><span class="profile-name"> Rex </span> </p>
+              <p><i class="fa fa-mars fa-lg"> Male </i></p>
+              <p><i class="fa fa-birthday-cake fa-lg"> 2 Years Old </i></p>
+              <p><i class="fa fa-paw fa-lg"> Dog </i></p>
+              <p><i class="fa fa-paw fa-lg"> German Shepherd </i></p>
+              <p><i class="fa fa-map-marker fa-lg"> Portugal </i></p>
+              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form role="form">
-                <div class="col-lg-2 picture-share-something">
-                  <img class="img" src="images/rex.png" alt="Profile Picture"/>
-                </div>
-                <div class="col-lg-8 share">
-                  <input type="text" class="form-control" placeholder="Share Something...">
-                </div>
-                <div class="col-lg-2 share-button">
-                  <button type="submit" class="btn btn-info"> Share </button>
-                </div>
-              </form>
+              <div class="col-lg-10 share">
+                <input type="text" class="form-control" placeholder="Share Something...">
+              </div>
+              <div class="col-lg-2 share-button">
+                <button type="submit" class="btn btn-info"> Share </button>
+              </div>
             </div>
           </div>
           <div class="row post-row">
-            <div class="col-lg-2 post-profile-picture">
-              <img class="img" src="images/sloth.jpg" alt="Profile Picture"/>
+            <div class="col-lg-3 post-profile-picture">
+              <img class="img" src="images/rex.png" alt="Profile Picture"/>
             </div>
-            <div class="col-lg-10 post-information">
+            <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
-                  <h3> Lazy Brady </h3>
-                  <p> Just chilling on the woods. </p>
-                  <p style="color: grey;"> 1 minute ago  </p>
+                  <h3> Rex </h3>
+                  <p> Me and my Bae. </p>
+                  <p style="color: grey;"> 2 hours ago  </p>
                   <div id="pointer"></div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-lg-8 post-image">
-                  <img class="img" src="images/sloth-chilling.jpg" style="width: 90%;" alt="Image Posted"/>
+                <div class="col-lg-12 post-image">
+                  <img class="img" src="images/rex_and_bae.png" style="width: 90%;" alt="Image Posted"/>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 2 <i class="fa fa-comment"></i> 0 </p>
+                  <p> <i class="fa fa-thumbs-up"></i> 10 <i class="fa fa-comment"></i> 4 </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+        <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
           <div class="row">
-            <div class="col-lg-12 groups panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading"> Groups </h2>
-              <div class="panel-content">
-                <ul>
-                  <li> <img class="img" src="images/german_shepherd_group.jpg" style="width: 100%;"/> German Shepherds group </li>
-                  <li> <img class="img" src="images/dog-group.jpg" style="width: 100%;"/> Dogs group </li>
-                </ul>
-              </div>
+            <div class="col-lg-12 activities panel panel-default">
+              <h2 class="panel-heading">Recent Activities</h2>
+              <ul class="panel-content">
+                <li>  Running </li>
+                <li> Hunting </li>
+              </ul>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 events panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading">Events</h2>
-              <ul class="panel-content">
-                <li>
-                  <h4> Dogs Race </h4>
-                  <img src="images/corrida-caes.jpg" style="width: 100%;"/>
-                  <p> Friday 20:00h, 18 March 2016 </p>
-                </li>
-              </ul>
+            <div class="col-lg-12 awards panel panel-default">
+              <h2 class="panel-heading">Awards(3)</h2>
+              <div class="panel-body">
+                <img src="images/award.png" style="width: 30%" alt="Award"/>
+                <img src="images/award.png" style="width: 30%" alt="Award"/>
+                <img src="images/award.png" style="width: 30%" alt="Award"/>
+                <p></p>
+                <a href=#>See all</a>
+              </div>
             </div>
           </div>
         </div>
@@ -137,3 +169,4 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php }} ?>

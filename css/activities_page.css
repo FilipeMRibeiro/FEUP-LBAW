@@ -1,0 +1,31 @@
+.main {
+  width: 90%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+}
+
+.panel-content {
+ padding: 2%;
+}
+
+.navbar-icon img {
+  margin-top: 9px;
+  margin-right: 9px;
+}
+
+.vcenter {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.border {
+  border-style: solid;
+}
+
+li {
+  margin-bottom: 2%;
+}
