@@ -17,46 +17,7 @@
 
     <title>Pawz</title>
   </head>
-
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-icon" href="#"><img src="../images/home.png" height="30" alt="Home"/></a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control search-input" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Friends</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Edit Profile</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
+  {include file='common/headerAndNav.tpl'}
     <div class="container-fluid main">
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
@@ -73,6 +34,7 @@
               <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
               <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
+              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername">{$username}</span> Add friend </a></i></p>
               <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>
@@ -80,17 +42,18 @@
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form method="POST" action="submitPost.php">
+              <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
-                  <input type="text" name="description" class="form-control" placeholder="Share Something...">
+                  <input type="text" name="description" required class="form-control" placeholder="Share Something...">
                 </div>
                 <div class="col-lg-2 share-button">
-                  <button type="submit" class="btn btn-info"> Share </button>
+                  <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
                 </div>
               </form>
             </div>
           </div>
 
+          <div class="recentlyCreatedPostSpace"></div>
           {foreach $posts as $post}
 
           <div class="row post-row">
@@ -100,7 +63,7 @@
             <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
-                  <h3> {$username} </h3>
+                  <h3><a href="showProfilePage.php?username={$username}"> {$username} </a></h3>
                   <p> {$post.description} </p>
                   <p style="color: grey;"> {$post.date}  </p>
                   <div id="pointer"></div>
@@ -154,6 +117,8 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+    <script src="../javascript/profilePost.js"></script>
+    <script src="../javascript/addFriend.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

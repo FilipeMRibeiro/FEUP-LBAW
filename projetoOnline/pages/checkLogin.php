@@ -6,7 +6,7 @@
   if(checkLogin($_POST['username'], $_POST['password']) == true)
   {
     $_SESSION['username'] = $_POST['username'];
-    header('Location: showProfilePage.php');
+    header('Location: showFeedPage.php');
   }
 
 ?>

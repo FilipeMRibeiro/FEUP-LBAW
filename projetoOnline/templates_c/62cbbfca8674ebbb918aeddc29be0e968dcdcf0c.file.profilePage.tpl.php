@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 00:10:44
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 00:28:00
          compiled from "/opt/lbaw/lbaw1552/public_html/frmk/templates/users/profilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1193107249572264e0215cc1-95279950%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '62cbbfca8674ebbb918aeddc29be0e968dcdcf0c' => 
     array (
       0 => '/opt/lbaw/lbaw1552/public_html/frmk/templates/users/profilePage.tpl',
-      1 => 1461881439,
+      1 => 1463092075,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'userInfo' => 0,
-    'posts' => 0,
     'username' => 0,
+    'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
@@ -45,45 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <title>Pawz</title>
   </head>
-
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-icon" href="#"><img src="../images/home.png" height="30" alt="Home"/></a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control search-input" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Friends</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Edit Profile</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+  <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
     <div class="container-fluid main">
       <div class="row">
@@ -108,6 +70,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               <p><i class="fa fa-map-marker fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['city_name'];?>
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
+              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</span> Add friend </a></i></p>
               <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>
@@ -115,17 +79,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form method="POST" action="submitPost.php">
+              <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
-                  <input type="text" name="description" class="form-control" placeholder="Share Something...">
+                  <input type="text" name="description" required class="form-control" placeholder="Share Something...">
                 </div>
                 <div class="col-lg-2 share-button">
-                  <button type="submit" class="btn btn-info"> Share </button>
+                  <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
                 </div>
               </form>
             </div>
           </div>
 
+          <div class="recentlyCreatedPostSpace"></div>
           <?php  $_smarty_tpl->tpl_vars['post'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['post']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['posts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['post']->key => $_smarty_tpl->tpl_vars['post']->value) {
@@ -139,8 +104,9 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
             <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
-                  <h3> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
- </h3>
+                  <h3><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ </a></h3>
                   <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
  </p>
                   <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
@@ -196,6 +162,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+    <script src="../javascript/profilePost.js"></script>
+    <script src="../javascript/addFriend.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

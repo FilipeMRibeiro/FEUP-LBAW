@@ -7,7 +7,7 @@
   if(createUser(1, 1, 1, $_POST['name'], $_POST['birthday'], $_POST['email'], $_POST['password'], $_POST['username']))
   {
     $_SESSION['username'] = $_POST['username'];
-    header('Location: showProfilePage.php');
+    header('Location: showFeedPage.php');
   }
 
 ?>
