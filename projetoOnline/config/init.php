@@ -1,5 +1,5 @@
 <?php
-  session_set_cookie_params(3600, '/~lbaw1552'); //FIXME
+  session_set_cookie_params(3600, '/~ei11141'); //FIXME
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
