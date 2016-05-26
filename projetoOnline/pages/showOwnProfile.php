@@ -7,10 +7,12 @@
 
   $userID = current(getUserID($_SESSION['username']));
 
-  $posts = getFeedPosts($userID);
+  $posts = getUserPosts($userID);
+  $userInfo = getUserInfo($_SESSION['username']);
 
   $smarty->assign('posts', $posts);
+  $smarty->assign('userInfo', $userInfo);
   $smarty->assign('username', $_SESSION['username']);
-  $smarty->display('users/feedPage.tpl');
+  $smarty->display('users/ownProfilePage.tpl');
 
 ?>

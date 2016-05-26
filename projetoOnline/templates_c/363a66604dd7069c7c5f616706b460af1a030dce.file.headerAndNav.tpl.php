@@ -1,4 +1,25 @@
-  <body>
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:35
+         compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:164623121757472f37c4ed47-68840732%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '363a66604dd7069c7c5f616706b460af1a030dce' => 
+    array (
+      0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl',
+      1 => 1464282923,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '164623121757472f37c4ed47-68840732',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57472f37c55eb2_60879945',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_57472f37c55eb2_60879945')) {function content_57472f37c55eb2_60879945($_smarty_tpl) {?>  <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,3 +58,4 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+<?php }} ?>

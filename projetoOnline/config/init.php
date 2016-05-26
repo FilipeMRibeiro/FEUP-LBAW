@@ -1,11 +1,11 @@
 <?php
-  session_set_cookie_params(3600, '/~lbaw1552'); //FIXME
+  session_set_cookie_params(3600, '/~up201303832'); //FIXME
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/opt/lbaw/lbaw1552/public_html/frmk/'; //FIXME
-  $BASE_URL = '/~lbaw1552/frmk/'; //FIXME
+  $BASE_DIR = '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/'; //FIXME
+  $BASE_URL = '/~up201303832/projetoOnline/'; //FIXME
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1552', 'lbaw1552', 'EA91H0S7'); //FIXME
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
