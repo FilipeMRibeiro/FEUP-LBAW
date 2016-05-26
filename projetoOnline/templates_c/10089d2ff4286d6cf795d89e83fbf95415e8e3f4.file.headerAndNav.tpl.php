@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-02 21:39:10
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 09:51:05
          compiled from "/opt/lbaw/lbaw1552/public_html/frmk/templates/common/headerAndNav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1712109368572410124eb569-05794368%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '10089d2ff4286d6cf795d89e83fbf95415e8e3f4' => 
     array (
       0 => '/opt/lbaw/lbaw1552/public_html/frmk/templates/common/headerAndNav.tpl',
-      1 => 1462217906,
+      1 => 1463125861,
       2 => 'file',
     ),
   ),
@@ -17,10 +17,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_572410124efe16_07613395',
-  'variables' => 
-  array (
-    'username' => 0,
-  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_572410124efe16_07613395')) {function content_572410124efe16_07613395($_smarty_tpl) {?>  <body>
@@ -45,9 +41,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav">
-            <li><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-">Profile</a></li>
-            <li><a href="#">Friends</a></li>
+            <li><a href="showOwnProfile.php">Profile</a></li>
+            <li><a href="showFriendList.php">Friends</a></li>
             <li><a href="showMessagesPage.php">Messages</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

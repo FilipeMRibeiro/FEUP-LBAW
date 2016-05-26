@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:43
+         compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:129403641257472f3f9d7b96-63656259%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '0b54d0d6e45228c106eda48a7a6d3fbd267eff9f' => 
+    array (
+      0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
+      1 => 1463126026,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '129403641257472f3f9d7b96-63656259',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'userInfo' => 0,
+    'posts' => 0,
+    'username' => 0,
+    'post' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57472f3fab2af3_98119030',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_57472f3fab2af3_98119030')) {function content_57472f3fab2af3_98119030($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -17,7 +45,8 @@
 
     <title>Pawz</title>
   </head>
-  {include file='common/headerAndNav.tpl'}
+  <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     <div class="container-fluid main">
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
@@ -28,14 +57,19 @@
           </div>
           <div class="row">
             <div class="col-lg-12 profile-information panel panel-default">
-              <p><span class="profile-name"> {$userInfo.user_name} </span> </p>
-              <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
-              <p><i class="fa fa-birthday-cake fa-lg"> {$userInfo.birthday} </i></p>
-              <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
-              <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
-              <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
-              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden">{$username}</span> Adds friend </a></i></p>
-              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
+              <p><span class="profile-name"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['user_name'];?>
+ </span> </p>
+              <p><i class="fa fa-mars fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <p><i class="fa fa-birthday-cake fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
+ </i></p>
+              <p><i class="fa fa-paw fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['species_name'];?>
+ </i></p>
+              <p><i class="fa fa-paw fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['race_name'];?>
+ </i></p>
+              <p><i class="fa fa-map-marker fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['city_name'];?>
+, <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
+ </i></p>
             </div>
           </div>
         </div>
@@ -54,7 +88,11 @@
           </div>
 
           <div class="recentlyCreatedPostSpace"></div>
-          {foreach $posts as $post}
+          <?php  $_smarty_tpl->tpl_vars['post'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['post']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['posts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['post']->key => $_smarty_tpl->tpl_vars['post']->value) {
+$_smarty_tpl->tpl_vars['post']->_loop = true;
+?>
 
           <div class="row post-row">
             <div class="col-lg-3 post-profile-picture">
@@ -63,9 +101,13 @@
             <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
-                  <h3><a href="showProfilePage.php?username={$username}"> {$username} </a></h3>
-                  <p> {$post.description} </p>
-                  <p style="color: grey;"> {$post.date}  </p>
+                  <h3><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ </a></h3>
+                  <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
+ </p>
+                  <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
+  </p>
                   <div id="pointer"></div>
                 </div>
               </div>
@@ -84,7 +126,7 @@
             </div>
           </div>
 
-          {/foreach}
+          <?php } ?>
 
         </div>
         <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
@@ -123,3 +165,4 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php }} ?>

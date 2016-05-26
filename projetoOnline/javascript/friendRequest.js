@@ -2,6 +2,8 @@ $(function() {
   $(".accept").click(function(e) {
     var username = $(".username").html();
     var chatID = $(".chatID").html();
+    $(this).replaceWith('<p><p style="color: green;"> Friend Request Accepted</p> </p>');
+    $(".decline").hide();
     e.preventDefault();
     $.ajax({
       type: 'POST',
@@ -12,8 +14,6 @@ $(function() {
       },
       success: function(html) {
         alert("Friend request accepted!");
-        $(".accept").replaceWith('<p><p style="color: green;"> Friend Request Accepted</p> </p>');
-        $(".decline").hide();
       }
     });
   });
