@@ -4,7 +4,8 @@ $('form').on('submit',function(e){
    $('.password-error-1').css({"display": "none"});
    $('.password-error-2').css({"display": "none"});
    $('.email-error').css({"display": "none"});
-   $('.username-error').css({"display": "none"});
+   $('.username-error-2').css({"display": "none"});
+   $('.username-error-1').css({"display": "none"});
    if($('.password').val()!=$('.confirmPassword').val()){
        $('.password-error-1').css({"display": "inline"});
        return false;
@@ -14,7 +15,7 @@ $('form').on('submit',function(e){
        return false;
    }
    else if(!regex.test($('.username').val())) {
-     $('.username-error').css({"display": "inline"});
+     $('.username-error-1').css({"display": "inline"});
      return false;
    }
    else if(!regexPassword.test($('.password').val())) {
@@ -30,7 +31,7 @@ $('form').on('submit',function(e){
        data: formData,
        success: function(response) {
          if(response == 'Username already in use')
-            alert(response)
+            $('.username-error-2').css({"display": "inline"});
          else {
             window.location.replace("../pages/login.html");
             alert('Your account was successfully registered!');

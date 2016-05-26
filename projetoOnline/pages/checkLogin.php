@@ -6,7 +6,10 @@
   if(checkLogin($_POST['username'], $_POST['password']) == true)
   {
     $_SESSION['username'] = $_POST['username'];
-    header('Location: showFeedPage.php');
+    //header('Location: showFeedPage.php');
+  }
+  else {
+    echo 'Login error';
   }
 
 ?>
