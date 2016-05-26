@@ -38,7 +38,10 @@
 
     $stmt->execute(array($username));
 
-    return $stmt->fetch();
+    if($stmt->rowCount() > 0)
+      return $stmt->fetch();
+    else
+      return false;
   }
 
   function getUsername($userID)
