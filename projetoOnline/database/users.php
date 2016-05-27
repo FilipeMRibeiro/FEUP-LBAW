@@ -102,6 +102,24 @@
     return $stmt->fetchAll();
   }
 
+  function getFeedPosts($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT *, User_user.username, FriendRequest.senderID, FriendRequest.receiverID
+                             FROM Post
+                             INNER JOIN User_user ON (User_user.userID = Post.userID)
+						INNER JOIN FriendRequest ON (FriendRequest.senderID = ? AND FriendRequest.receiverID = Post.userID)
+						UNION SELECT *, User_user.username, FriendRequest.senderID, FriendRequest.receiverID
+                             FROM Post
+                             INNER JOIN User_user ON (User_user.userID = Post.userID)
+						INNER JOIN FriendRequest ON (FriendRequest.receiverID = ? AND FriendRequest.senderID = Post.userID)
+                            ORDER BY postID DESC");
+
+	$stmt->execute(array($userID, $userID));
+
+    return $stmt->fetchAll();
+  }
+
   function getUserInfo($username)
   {
     global $conn;
@@ -154,7 +172,7 @@
     $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description, date)
                             VALUES (?, ?, ?, ?)");
 
-    return $stmt->execute(array($chatID, $userID, $description, date("Y-m-d")));
+    return $stmt->execute(array($chatID, $userID, $description, date("h:i:sa")));
   }
 
   function createChat($name)
@@ -211,5 +229,66 @@
     $stmt->execute(array($userID));
 
     return $stmt->fetchAll();
+  }
+
+  function getFriends($userID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT senderID AS userID
+                            FROM FriendRequest
+                            WHERE accepted = ? AND receiverID = ?
+                            UNION
+                            SELECT receiverID AS userID
+                            FROM FriendRequest
+                            WHERE accepted = ? AND senderID = ?");
+
+    $stmt->execute(array(1, $userID, 1, $userID));
+
+    return $stmt->fetchAll();
+  }
+  
+  function createGroup($userID, $name, $description, $date)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Community (userID, name, description, textSearch) VALUES (?, ?, ?, ?)");
+	  $textSearch = $name . $description;
+	    
+	  return $stmt->execute(array($userID, $name, $description, $textSearch));
+  }
+  
+  function getCreatedCommunities($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT communityID, name, description
+								FROM Community
+								WHERE userID = ?");
+								
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+
+  function getJoinedCommunities($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT Community.communityID, name, description
+								FROM Community, User_Community
+								WHERE Community.communityID = User_Community.CommunityID
+								AND User_Community.userID = ?");
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+  function getOtherCommunities($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT communityID, Community.name, description, username
+								FROM Community, User_User
+								WHERE Community.UserID = User_User.UserID
+								AND Community.UserID <> ?");
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
   }
 ?>

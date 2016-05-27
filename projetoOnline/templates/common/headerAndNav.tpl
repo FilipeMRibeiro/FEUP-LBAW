@@ -20,9 +20,11 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav">
-            <li><a href="showProfilePage.php?username={$username}">Profile</a></li>
-            <li><a href="#">Friends</a></li>
+            <li><a href="showOwnProfile.php">Profile</a></li>
+            <li><a href="showFriendList.php">Friends</a></li>
             <li><a href="showMessagesPage.php">Messages</a></li>
+			<li><a href="showGroups.php">Groups</a></li>
+			<li><a href="eventCreationPage.php">Events</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

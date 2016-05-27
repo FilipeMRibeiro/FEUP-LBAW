@@ -74,7 +74,7 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading"> Groups </h2>
+              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showGroups.php"> Groups </a> </h2>
               <div class="panel-content">
                 <ul>
                   <li> <img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/> German Shepherds group </li>
@@ -85,7 +85,7 @@
           </div>
           <div class="row">
             <div class="col-lg-12 events panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading">Events</h2>
+              <h3 style="text-align: center;" class="panel-heading"> <a href="../pages/showEvents.php"> Events </a> </h3>
               <ul class="panel-content">
                 <li>
                   <h4> Dogs Race </h4>

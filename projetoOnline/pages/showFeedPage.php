@@ -5,7 +5,7 @@
 
   $userID = current(getUserID($_SESSION['username']));
 
-  $posts = getAllPosts();
+  $posts = getFeedPosts($userID);
 
   $smarty->assign('posts', $posts);
   $smarty->assign('username', $_SESSION['username']);
