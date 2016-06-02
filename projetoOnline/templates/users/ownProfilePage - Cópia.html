@@ -34,15 +34,13 @@
               <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
               <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
-              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden">{$username}</span> Add friend </a></i></p>
-              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form method="POST" class="submitPost" action="#">
+              <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
                 </div>

@@ -140,6 +140,18 @@
     return $stmt->fetch();
   }
 
+  function getUserDetails($username)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT cityID, raceID, genderID, name, birthday, email
+                            FROM User_user
+                            WHERE username = ?");
+
+    $stmt->execute(array($username));
+
+    return $stmt->fetch();
+  }
+
   function sendFriendRequest($senderID, $receiverID)
   {
     global $conn;
@@ -172,10 +184,10 @@
   function sendMessage($chatID, $userID, $description)
   {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description, date)
-                            VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description)
+                            VALUES (?, ?, ?)");
 
-    return $stmt->execute(array($chatID, $userID, $description, date("h:i:sa")));
+    return $stmt->execute(array($chatID, $userID, $description));
   }
 
   function createChat($name)
@@ -221,17 +233,47 @@
     return $stmt->fetch();
   }
 
+  function getAllMessages($chatID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT userID, description, date
+                            FROM Message
+                            WHERE chatID = ?
+                            ORDER BY messageID DESC");
+
+    $stmt->execute(array($chatID));
+
+    return $stmt->fetchAll();
+  }
+
   function getChats($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT DISTINCT User_chat.chatID
-                            FROM User_Chat, message
+    $stmt = $conn->prepare("SELECT User_chat.chatID, MAX(Message.date)
+                            FROM User_Chat
+                            JOIN Message ON (User_chat.chatID = Message.chatID)
                             WHERE User_chat.userID = ?
+
+                            GROUP BY User_chat.chatID
+                            ORDER BY MAX(Message.date) DESC
                             ");
 
     $stmt->execute(array($userID));
 
     return $stmt->fetchAll();
+  }
+
+  function getChatName($chatID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name
+                            FROM chat
+                            WHERE chatID = ?
+                            ");
+
+    $stmt->execute(array($chatID));
+
+    return $stmt->fetch();
   }
 
   function getFriends($userID)

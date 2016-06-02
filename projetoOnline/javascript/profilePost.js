@@ -7,7 +7,7 @@ $(function() {
       url: '../pages/submitProfilePost.php',
       data: formData,
       success: function(html) {
-        $('.recentlyCreatedPostSpace').replaceWith(function() {
+        $('.recentlyCreatedPostSpace').prepend(function() {
           return $(html).hide().fadeIn(1000);
         });
       }
