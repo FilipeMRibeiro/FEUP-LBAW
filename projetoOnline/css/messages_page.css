@@ -71,3 +71,29 @@ body {
     overflow:hidden;
     white-space: nowrap;
 }
+
+.chat-content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.messages-panel {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.active {
+  background-color: lightgrey;
+}
+
+.selected {
+  display: inline;
+}
+
+.non-selected {
+  display: none;
+}
+
+.chat-box {
+  cursor: pointer; cursor: hand;
+}

@@ -10,7 +10,7 @@
 
   $nameOption1 = $_SESSION['username'].$receiverUsername;
   $nameOption2 = $receiverUsername.$_SESSION['username'];
-
+/*
   if(getChatID($nameOption1) == true)
   {
     $chatID = current(getChatID($nameOption1));
@@ -30,7 +30,7 @@
     sendMessage($chatID, $userID, $description);
     sendFriendRequest($userID, $receiverID);
   }
-    else {
+    else {*/
       if(createChat($nameOption1)) {
           $chatID = current(getChatID($nameOption1));
           createUserChat($userID, $chatID);
@@ -42,5 +42,5 @@
           sendMessage($chatID, $userID, $description);
           sendFriendRequest($userID, $receiverID);
       }
-  }
+  //}
 ?>

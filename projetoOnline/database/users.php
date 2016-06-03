@@ -59,10 +59,10 @@
   function createPost($userID, $description, $privacy)
   {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO Post (userID, date, description, privacy)
-                            VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Post (userID, description, privacy)
+                            VALUES (?, ?, ?)");
 
-    return $stmt->execute(array($userID, date("Y-m-d"), $description, $privacy));
+    return $stmt->execute(array($userID, $description, $privacy));
   }
 
   function getUserPosts($userID)
@@ -129,10 +129,22 @@
     $stmt = $conn->prepare("SELECT Race.name AS race_name, Species.name AS species_name, Gender.name AS gender_name, City.name AS city_name, Country.name AS country_name, User_user.name AS user_name, birthday
                             FROM User_user
                             INNER JOIN City ON (User_user.cityID = City.cityID)
-                            INNER JOIN Country ON (City.cityID = Country.countryID)
+                            INNER JOIN Country ON (City.countryID = Country.countryID)
                             INNER JOIN Race ON (User_user.raceID = Race.raceID)
                             INNER JOIN Species ON (Race.speciesID = Species.speciesID)
                             INNER JOIN Gender ON (User_user.genderID = Gender.genderID)
+                            WHERE username = ?");
+
+    $stmt->execute(array($username));
+
+    return $stmt->fetch();
+  }
+
+  function getUserDetails($username)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT cityID, raceID, genderID, name, birthday, email
+                            FROM User_user
                             WHERE username = ?");
 
     $stmt->execute(array($username));
@@ -172,10 +184,10 @@
   function sendMessage($chatID, $userID, $description)
   {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description, date)
-                            VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description)
+                            VALUES (?, ?, ?)");
 
-    return $stmt->execute(array($chatID, $userID, $description, date("h:i:sa")));
+    return $stmt->execute(array($chatID, $userID, $description));
   }
 
   function createChat($name)
@@ -211,7 +223,7 @@
   function getLastMessage($chatID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT userID, description, date
+    $stmt = $conn->prepare("SELECT userID, description, date::timestamp(0)
                             FROM Message
                             WHERE chatID = ?
                             ORDER BY messageID DESC");
@@ -221,17 +233,47 @@
     return $stmt->fetch();
   }
 
+  function getAllMessages($chatID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT userID, description, date::timestamp(0)
+                            FROM Message
+                            WHERE chatID = ?
+                            ORDER BY messageID ASC");
+
+    $stmt->execute(array($chatID));
+
+    return $stmt->fetchAll();
+  }
+
   function getChats($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT DISTINCT User_chat.chatID
-                            FROM User_Chat, message
+    $stmt = $conn->prepare("SELECT User_chat.chatID, MAX(Message.date)
+                            FROM User_Chat
+                            JOIN Message ON (User_chat.chatID = Message.chatID)
                             WHERE User_chat.userID = ?
+
+                            GROUP BY User_chat.chatID
+                            ORDER BY MAX(Message.date) DESC
                             ");
 
     $stmt->execute(array($userID));
 
     return $stmt->fetchAll();
+  }
+
+  function getChatName($chatID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name
+                            FROM chat
+                            WHERE chatID = ?
+                            ");
+
+    $stmt->execute(array($chatID));
+
+    return $stmt->fetch();
   }
 
   function getFriends($userID)
