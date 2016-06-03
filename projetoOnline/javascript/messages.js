@@ -3,6 +3,7 @@ setInterval(checkMessages, 300);
 setInterval(checkPreview, 300);
 
 var $chatbox = $('.chat-box');
+var messagesPanel = $('.messages-panel')
 
 $chatbox.on('click', function() {
   chatID = $(this).find('.getChatID').text();
@@ -15,6 +16,8 @@ $chatbox.on('click', function() {
 
   $('.' + chat).removeClass("non-selected");
   $('.' + chat).addClass("selected");
+
+  messagesPanel.animate({ scrollTop: messagesPanel.prop ("scrollHeight") - messagesPanel.height() }, 1);
 });
 
 
@@ -28,46 +31,45 @@ $('.submitMessage').click(function(e) {
       url: '../pages/submitMessage.php',
       data: formData,
       success: function(html) {
+        $('.chat-space'+chatID).append(html);
+        messagesPanel.animate({ scrollTop: messagesPanel.prop ("scrollHeight") - messagesPanel.height() }, 1);
       }
     });
     $('.messageForm').find('.messageToSend'+chatID).val('');
+    messagesPanel.animate({ scrollTop: messagesPanel.prop ("scrollHeight") - messagesPanel.height() }, 1);
   }
 });
 
 function checkMessages() {
-  $(document).ready(function() {
-    $.ajax({
-      type: 'post',
-      url: '../pages/checkNewMessages.php',
-      success: function(html) {
-        var html = $.parseHTML(html);
-        nodeNames = [];
-        $('.chat-space').html('');
-        $.each( html, function( i, el ) {
-          nodeNames[ i ] = $(this).text().trim();
-          nodeNames[i] = nodeNames[i].substr(0,nodeNames[i].indexOf(' '));
-          $('.chat-space'+nodeNames[i]).append(el);
-        });
-      }
-    });
+  $.ajax({
+    type: 'post',
+    url: '../pages/checkNewMessages.php',
+    success: function(html) {
+      var html = $.parseHTML(html);
+      nodeNames = [];
+      $('.chat-space').html('');
+      $.each( html, function( i, el ) {
+        nodeNames[ i ] = $(this).text().trim();
+        nodeNames[i] = nodeNames[i].substr(0,nodeNames[i].indexOf(' '));
+        $('.chat-space'+nodeNames[i]).append(el);
+      });
+    }
   });
 }
 
 function checkPreview() {
-  $(document).ready(function() {
-    $.ajax({
-      type: 'post',
-      url: '../pages/checkNewPreviewMessages.php',
-      success: function(html) {
-        var html = $.parseHTML(html);
-        nodeNames = [];
-        $chatbox.find('.chatFill').html('');
-        $.each( html, function( i, el ) {
-          nodeNames[ i ] = $(this).text().trim();
-          nodeNames[i] = nodeNames[i].substr(0,nodeNames[i].indexOf(' '));
-          $('.chat-box'+nodeNames[i]).find('.chatFill').append(el);
-        });
-      }
-    });
+  $.ajax({
+    type: 'post',
+    url: '../pages/checkNewPreviewMessages.php',
+    success: function(html) {
+      var html = $.parseHTML(html);
+      nodeNames = [];
+      $chatbox.find('.chatFill').html('');
+      $.each( html, function( i, el ) {
+        nodeNames[ i ] = $(this).text().trim();
+        nodeNames[i] = nodeNames[i].substr(0,nodeNames[i].indexOf(' '));
+        $('.chat-box'+nodeNames[i]).find('.chatFill').append(el);
+      });
+    }
   });
 }

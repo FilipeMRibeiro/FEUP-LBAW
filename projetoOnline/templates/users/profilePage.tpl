@@ -42,7 +42,7 @@
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form method="POST" class="submitPost" action="#">
+              <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
                 </div>
