@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-27 00:41:10
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 23:56:29
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47694758057477b8637ca64-14929979%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3d2be6f9f3c5e14a3b56e8c517ffc06bc9441c06' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1464266336,
+      1 => 1465160184,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57477b86436e29_60319088',
   'variables' => 
   array (
     'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57477b86436e29_60319088',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57477b86436e29_60319088')) {function content_57477b86436e29_60319088($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -73,7 +73,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
           <div class="row post-row">
             <div class="col-lg-2 post-profile-picture">
-              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['username'];?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
             <div class="col-lg-10 post-information">
               <div class="row">
@@ -88,24 +89,18 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-8 post-image">
-                  <img class="img" src="../images/sloth-chilling.jpg" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 2 <i class="fa fa-comment"></i> 0 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 ">
+            <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvote'];?>
+ </p>
             </div>
           </div>
 
           <?php } ?>
-
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">

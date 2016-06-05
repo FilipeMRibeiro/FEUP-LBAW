@@ -334,4 +334,13 @@
     $stmt->execute(array($countryName));
     return $stmt->fetchAll();
   }
+
+  function getPostUpVotes($post){
+    global $conn;
+    $stml = $conn->prepare("SELECT COUNT(*)
+                            FROM Upvote
+                            WHERE Upvote.postID = ?"); 
+    $stmt->execute(array($post));
+    return $stmt->fetch();
+  }
 ?>

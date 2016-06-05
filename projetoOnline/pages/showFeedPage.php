@@ -9,6 +9,11 @@
 
   $posts = getFeedPosts($userID);
 
+  foreach ($posts as &$post)
+  {
+    $post['upvotes'] = current(getPostUpVotes($post['postid']));
+  }
+
   $smarty->assign('posts', $posts);
   $smarty->assign('username', $_SESSION['username']);
   $smarty->display('users/feedPage.tpl');

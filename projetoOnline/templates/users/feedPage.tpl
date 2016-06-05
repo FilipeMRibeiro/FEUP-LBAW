@@ -53,24 +53,17 @@
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-8 post-image">
-                  <img class="img" src="../images/sloth-chilling.jpg" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 2 <i class="fa fa-comment"></i> 0 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 ">
+            <p> {$post.upvotes} </p>
             </div>
           </div>
 
           {/foreach}
-
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">
