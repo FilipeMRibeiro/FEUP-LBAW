@@ -36,3 +36,18 @@ $(document).ready(function(){
     e.preventDefault();
   });
 });
+
+$('.upload-image-form').submit(function(e) {
+  e.preventDefault();
+  var formData = new FormData($(this)[0]);
+  $.ajax({
+    type: 'post',
+    url: '../pages/uploadPhoto.php',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function() {
+      location.reload();
+    }
+  });
+});

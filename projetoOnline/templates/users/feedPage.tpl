@@ -42,7 +42,7 @@
 
           <div class="row post-row">
             <div class="col-lg-2 post-profile-picture">
-              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/{$post.username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
             <div class="col-lg-10 post-information">
               <div class="row">

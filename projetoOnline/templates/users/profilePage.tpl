@@ -23,7 +23,7 @@
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
-              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
@@ -35,7 +35,24 @@
               <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
               <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
               <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden">{$username}</span> Add friend </a></i></p>
-              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
+              <p><i class="fa fa-envelope fa-lg"><a id="SendMessageButton" data-toggle="modal" data-target="#myModal"> Send Message</a></i></p>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Send Message</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form action="#" method="post" enctype="multipart/form-data" class="send-message-form">
+                      <p>Message:</p>
+                      <p><textarea COLS=40 ROWS=6 name="description" id="description"></textarea></p>
+                      <input type="submit" value="Send Message" name="submit" class="upload-image-submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

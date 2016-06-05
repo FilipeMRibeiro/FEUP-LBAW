@@ -1,32 +1,32 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:35
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:19:55
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:164966551257472f37a94931-80378502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:77199056157545dde1043c5-44866905%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ff4aa5a524d431361df502e8d4921859a8e4b5ec' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl',
-      1 => 1463133618,
+      1 => 1465153936,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '164966551257472f37a94931-80378502',
+  'nocache_hash' => '77199056157545dde1043c5-44866905',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57545dde1a8f96_09428056',
   'variables' => 
   array (
-    'userInfo' => 0,
     'username' => 0,
+    'userInfo' => 0,
     'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f37be7766_29244840',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f37be7766_29244840')) {function content_57472f37be7766_29244840($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57545dde1a8f96_09428056')) {function content_57545dde1a8f96_09428056($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -52,7 +52,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
-              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
@@ -71,8 +72,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
               <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</span> Adds friend </a></i></p>
-              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
+</span> Add friend </a></i></p>
+              <p><i class="fa fa-envelope fa-lg"><a id="SendMessageButton" data-toggle="modal" data-target="#myModal"> Send Message</a></i></p>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Send Message</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form action="#" method="post" enctype="multipart/form-data" class="send-message-form">
+                      <p>Message:</p>
+                      <p><textarea COLS=40 ROWS=6 name="description" id="description"></textarea></p>
+                      <input type="submit" value="Send Message" name="submit" class="upload-image-submit">
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

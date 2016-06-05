@@ -45,7 +45,7 @@
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
-              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
@@ -53,6 +53,12 @@
               <p><span class="profile-name"> {$userInfo.user_name} </span> </p>
               {if $userInfo.gender_name eq 'Male'}
                 <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
+              {/if}
+              {if $userInfo.gender_name eq 'Female'}
+                <p><i class="fa fa-venus fa-lg"> {$userInfo.gender_name} </i></p>
+              {/if}
+              {if $userInfo.gender_name eq 'Other'}
+                <p><i class="fa fa-transgender-alt fa-lg"> {$userInfo.gender_name} </i></p>
               {/if}
               <p><i class="fa fa-birthday-cake fa-lg"> {$userInfo.birthday} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
@@ -62,7 +68,7 @@
               <div class="col-lg-12 profile-information panel panel-default">
                 <br>
                 <p><i class="fa fa-cog fa-lg"><a id="editProfileButton" data-toggle="modal" data-target="#myModal1"> Edit Profile </a></i></p>
-                <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>             
+                <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>
               </div>
               <!-- Edit profile box -->
               <div class="modal fade" id="myModal1" role="dialog">
@@ -82,8 +88,8 @@
                         <p>Birthday:</p>
                         <input type="date" name="birthday" value={$userInfo.birthday}><br><br>
                         <p>Email:</p>
-                        <input type="text" name="email" value={$userInfo.email}><br><br> 
-                        <p>Specie & Race:</p>
+                        <input type="text" name="email" value={$userInfo.email}><br><br>
+                        <p>Species & Race:</p>
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle speciesRace" type="button" data-toggle="dropdown">Select
                           <span class="caret"></span></button>
@@ -118,7 +124,7 @@
                               </ul>
                             </li>
                             {/foreach}
-                          </ul> 
+                          </ul>
                         </div>
                           <br><br>
                         <button type="submit" id="submitButtonEditProfile" class="btn btn-default">Save</button>
@@ -137,11 +143,10 @@
                       <h4 class="modal-title">Upload New Profile Picture</h4>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" class ="submitProfilePic" action="#">
-
-
-                        <br><br>
-                        <button type="submit" id="submitButtonProfilePic" class="btn btn-default">Save</button>
+                      <form action="#" method="post" enctype="multipart/form-data" class="upload-image-form">
+                        <p>Select image to upload:</p>
+                        <input type="file" name="image" id="fileToUpload">
+                        <input type="submit" value="Upload Image" name="submit" class="upload-image-submit">
                       </form>
                     </div>
                   </div>

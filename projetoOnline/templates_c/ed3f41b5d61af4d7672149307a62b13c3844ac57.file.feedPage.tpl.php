@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:37
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:08:45
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:139504956257472f3974d653-16743191%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:28992985657545d52af0562-98124565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'ed3f41b5d61af4d7672149307a62b13c3844ac57' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1463091682,
+      1 => 1465153720,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '139504956257472f3974d653-16743191',
+  'nocache_hash' => '28992985657545d52af0562-98124565',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57545d52c15c41_12191506',
   'variables' => 
   array (
     'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f398051c0_63965301',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f398051c0_63965301')) {function content_57472f398051c0_63965301($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57545d52c15c41_12191506')) {function content_57545d52c15c41_12191506($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -73,7 +73,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
           <div class="row post-row">
             <div class="col-lg-2 post-profile-picture">
-              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['username'];?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
             <div class="col-lg-10 post-information">
               <div class="row">

@@ -1,30 +1,31 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:16:31
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 19:11:49
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:82606024057472f6f0e7651-34775115%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:48395260657545d552283f9-67580318%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '081267966285f52ea77c120547d9fb2c9358c145' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl',
-      1 => 1463086791,
+      1 => 1465144084,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '82606024057472f6f0e7651-34775115',
+  'nocache_hash' => '48395260657545d552283f9-67580318',
   'function' => 
   array (
   ),
   'variables' => 
   array (
+    'username' => 0,
     'chats' => 0,
     'chat' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f6f19b465_94846136',
+  'unifunc' => 'content_57545d552c0298_13824445',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f6f19b465_94846136')) {function content_57472f6f19b465_94846136($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57545d552c0298_13824445')) {function content_57545d552c0298_13824445($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,60 +46,59 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   </head>
   <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
+  <span class="session-Username" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</span>
   <div class="container-fluid main">
     <div class="row">
       <div class="col-lg-12 panel panel-default">
         <h2 class="panel-heading"> Messages </h2>
-        <div class="col-lg-3" style="border-right-style: solid; max-height: 700px;">
-          <div class="panel-content">
+        <div class="col-lg-3" !--style="border-right-style: solid; max-height: 700px;" >
+          <div class="panel-content chat-content">
             <?php  $_smarty_tpl->tpl_vars['chat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['chat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['chats']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['chat']->key => $_smarty_tpl->tpl_vars['chat']->value) {
 $_smarty_tpl->tpl_vars['chat']->_loop = true;
 ?>
-            <div class="row message-box">
-              <div class="col-lg-3 vcenter profile-picture">
-                <img src="../images/defaultProfilePicture.png"/>
-              </div>
-              <div class="col-lg-8 vcenter last-message">
-                <p class="profile-name"><?php echo $_smarty_tpl->tpl_vars['chat']->value['username'];?>
-</p>
-                <p><?php echo $_smarty_tpl->tpl_vars['chat']->value['message']['description'];?>
-</p>
-              </div>
+            <div class="chat-box<?php echo $_smarty_tpl->tpl_vars['chat']->value['name'];?>
+ chat-box">
+              <span class="getChatID" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+ </span>
+              <div class="chatFill"> </div>
             </div>
             <?php } ?>
           </div>
         </div>
-        <div class="col-lg-9 message">
+        <?php  $_smarty_tpl->tpl_vars['chat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['chat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['chats']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['chat']->key => $_smarty_tpl->tpl_vars['chat']->value) {
+$_smarty_tpl->tpl_vars['chat']->_loop = true;
+?>
+        <div class="col-lg-9 chat-messages chat<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+ non-selected" >
           <div class="panel-content">
             <div class="col-lg-12">
               <div class="row">
-                <div class="col-lg-12 panel panel-default" style="min-height:300px;">
-                  <div class="row message">
-                    <div class="col-lg-1 message-profile-picture">
-                      <img src="../images/defaultProfilePicture.png"/>
-                    </div>
-                    <div class="col-lg-10 message-content">
-                      <p class="profile-name"><?php echo $_smarty_tpl->tpl_vars['chats']->value[0]['username'];?>
-</p>
-                      <p> <?php echo $_smarty_tpl->tpl_vars['chats']->value[0]['message']['description'];?>
- </p>
-                      <p> <?php echo $_smarty_tpl->tpl_vars['chats']->value[0]['message']['date'];?>
- </p>
-                    </div>
+                <div class="col-lg-12 panel panel-default messages-panel messages-panel<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+" style="height:300px;">
+                  <div class="chat-space<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+ chat-space">
+
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-lg-12">
-                  <input type="text" class="form-control" style="padding-bottom: 10%; padding-top: 2%;" placeholder="Write a message...">
-                  <button type="submit" class="btn btn-info pull-right"> Send </button>
+                  <form action="#" class="messageForm" method="POST" role="form">
+                    <input type="text" name="description" required class="form-control messageToSend<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+" style="padding-bottom: 10%; padding-top: 2%;" placeholder="Write a message...">
+                    <button type="submit" class="btn btn-info pull-right submitMessage"> Send </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <?php } ?>
       </div>
     </div>
   </div>
@@ -107,6 +107,7 @@ $_smarty_tpl->tpl_vars['chat']->_loop = true;
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   <script src="../javascript/friendRequest.js"></script>
+  <script src="../javascript/messages.js"></script>
 
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="../bootstrap/js/bootstrap.min.js"></script>

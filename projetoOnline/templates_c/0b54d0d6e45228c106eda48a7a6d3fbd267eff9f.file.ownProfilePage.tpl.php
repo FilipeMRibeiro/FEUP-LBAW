@@ -1,32 +1,38 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:43
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:11:42
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:129403641257472f3f9d7b96-63656259%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1660827455575461b0116fc5-16120380%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '0b54d0d6e45228c106eda48a7a6d3fbd267eff9f' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1463126026,
+      1 => 1465153086,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '129403641257472f3f9d7b96-63656259',
+  'nocache_hash' => '1660827455575461b0116fc5-16120380',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_575461b026b001_41391854',
   'variables' => 
   array (
-    'userInfo' => 0,
-    'posts' => 0,
     'username' => 0,
+    'userInfo' => 0,
+    'species' => 0,
+    'speciesName' => 0,
+    'race' => 0,
+    'country' => 0,
+    'countryName' => 0,
+    'city' => 0,
+    'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f3fab2af3_98119030',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f3fab2af3_98119030')) {function content_57472f3fab2af3_98119030($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_575461b026b001_41391854')) {function content_575461b026b001_41391854($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -44,6 +50,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
 
     <title>Pawz</title>
+
+    <style>
+      .dropdown-submenu {
+          position: relative;
+      }
+
+      .dropdown-submenu .dropdown-menu {
+          top: 0;
+          left: 100%;
+          margin-top: -1px;
+      }
+      .raceButton{
+        background-color: white;
+        border: none;
+        color: black;
+      }
+
+      #editProfileButton{
+
+      }
+
+    </style>
   </head>
   <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
@@ -52,15 +80,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
-              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 profile-information panel panel-default">
               <p><span class="profile-name"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['user_name'];?>
  </span> </p>
-              <p><i class="fa fa-mars fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Male') {?>
+                <p><i class="fa fa-mars fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
  </i></p>
+              <?php }?>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Female') {?>
+                <p><i class="fa fa-venus fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <?php }?>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Other') {?>
+                <p><i class="fa fa-transgender-alt fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <?php }?>
               <p><i class="fa fa-birthday-cake fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
  </i></p>
               <p><i class="fa fa-paw fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['species_name'];?>
@@ -71,6 +110,118 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
             </div>
+              <div class="col-lg-12 profile-information panel panel-default">
+                <br>
+                <p><i class="fa fa-cog fa-lg"><a id="editProfileButton" data-toggle="modal" data-target="#myModal1"> Edit Profile </a></i></p>
+                <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>
+              </div>
+              <!-- Edit profile box -->
+              <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Edit Profile</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form method="POST" class ="submitEditProfile" action="#">
+
+                        <p>Gender:</p>
+                        <input type="radio" name="gender" value="Male"> Male &nbsp
+                        <input type="radio" name="gender" value="Female"> Female &nbsp
+                        <input type="radio" name="gender" value="Other"> Other <br><br>
+                        <p>Birthday:</p>
+                        <input type="date" name="birthday" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
+><br><br>
+                        <p>Email:</p>
+                        <input type="text" name="email" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['email'];?>
+><br><br>
+                        <p>Species & Race:</p>
+                        <div class="dropdown">
+                          <button class="btn btn-default dropdown-toggle speciesRace" type="button" data-toggle="dropdown">Select
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <?php  $_smarty_tpl->tpl_vars['speciesName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['speciesName']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['species']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['speciesName']->key => $_smarty_tpl->tpl_vars['speciesName']->value) {
+$_smarty_tpl->tpl_vars['speciesName']->_loop = true;
+?>
+                            <li class="dropdown-submenu">
+                              <a class="test-submenu"><?php echo $_smarty_tpl->tpl_vars['speciesName']->value['name'];?>
+ <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <?php  $_smarty_tpl->tpl_vars['race'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['race']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['speciesName']->value['race']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['race']->key => $_smarty_tpl->tpl_vars['race']->value) {
+$_smarty_tpl->tpl_vars['race']->_loop = true;
+?>
+                                <li><button type="button" class="raceButton" name="race" value ="<?php echo $_smarty_tpl->tpl_vars['race']->value['race_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['race']->value['race_name'];?>
+</button></li>
+                                <?php } ?>
+                                <li class="dropdown-submenu">
+                              </ul>
+                            </li>
+                            <?php } ?>
+                          </ul>
+                        </div>
+                        <br>
+                        <p>Country & City:</p>
+                        <div class="dropdown">
+                          <button class="btn btn-default dropdown-toggle countryCity" type="button" data-toggle="dropdown">Select
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <?php  $_smarty_tpl->tpl_vars['countryName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['countryName']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['country']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['countryName']->key => $_smarty_tpl->tpl_vars['countryName']->value) {
+$_smarty_tpl->tpl_vars['countryName']->_loop = true;
+?>
+                            <li class="dropdown-submenu">
+                              <a class="test-submenu"><?php echo $_smarty_tpl->tpl_vars['countryName']->value['name'];?>
+ <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <?php  $_smarty_tpl->tpl_vars['city'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['city']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countryName']->value['city']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['city']->key => $_smarty_tpl->tpl_vars['city']->value) {
+$_smarty_tpl->tpl_vars['city']->_loop = true;
+?>
+                                <li><button type="button" class="cityButton" name="city" value ="<?php echo $_smarty_tpl->tpl_vars['city']->value['city_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['city']->value['city_name'];?>
+</button></li>
+                                <?php } ?>
+                                <li class="dropdown-submenu">
+                              </ul>
+                            </li>
+                            <?php } ?>
+                          </ul>
+                        </div>
+                          <br><br>
+                        <button type="submit" id="submitButtonEditProfile" class="btn btn-default">Save</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -->
+              <!-- New pic box -->
+              <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Upload New Profile Picture</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form action="#" method="post" enctype="multipart/form-data" class="upload-image-form">
+                        <p>Select image to upload:</p>
+                        <input type="file" name="image" id="fileToUpload">
+                        <input type="submit" value="Upload Image" name="submit" class="upload-image-submit">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- -->
           </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
@@ -161,6 +312,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
+    <script src="../javascript/editProfile.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
