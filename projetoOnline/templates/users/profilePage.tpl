@@ -34,7 +34,7 @@
               <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
               <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
-              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden">{$username}</span> Adds friend </a></i></p>
+              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden">{$username}</span> Add friend </a></i></p>
               <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>

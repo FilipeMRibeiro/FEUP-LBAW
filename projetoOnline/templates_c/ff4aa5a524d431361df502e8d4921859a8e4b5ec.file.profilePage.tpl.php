@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:35
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-27 09:47:42
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:164966551257472f37a94931-80378502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff4aa5a524d431361df502e8d4921859a8e4b5ec' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl',
-      1 => 1463133618,
+      1 => 1464335177,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57472f37be7766_29244840',
   'variables' => 
   array (
     'userInfo' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'post' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f37be7766_29244840',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57472f37be7766_29244840')) {function content_57472f37be7766_29244840($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
               <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</span> Adds friend </a></i></p>
+</span> Add friend </a></i></p>
               <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>

@@ -14,15 +14,20 @@
     $chat['username'] = current(getUsername($chat['message']['userid']));
     $chat['name'] = current(getChatName($chat['chatid']));
     $chat['name'] = str_replace($_SESSION['username'], "", $chat['name']);
-    $chat['messages'] = getAllMessages($chat['chatid']);
-    foreach($chat['messages'] as &$message)
-    {
-      $message['username'] =  current(getUsername($message['userid']));
-    }
+
+      echo '<div chat-box'.$chat['chatid'].'">
+        <div class="row message-box">
+          <div class="col-lg-3 vcenter profile-picture">
+            <img src="../images/defaultProfilePicture.png"/>
+          </div>
+          <div class="col-lg-8 vcenter last-message">
+            <p class="profile-name">' . $chat['name'] .'</p>
+            <p>'. $chat['message']['description'] . '</p>
+          </div>
+        </div>
+      </div>' ;
   }
 
-  $smarty->assign('username', $_SESSION['username']);
-  $smarty->assign('chats', $chats);
-  $smarty->display('users/messagesPage.tpl');
+
 
 ?>

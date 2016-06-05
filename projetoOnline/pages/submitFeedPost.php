@@ -14,7 +14,7 @@
         <div class="col-lg-2 post-profile-picture">
           <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
         </div>
-        <div class="col-lg-9 post-information">
+        <div class="col-lg-10 post-information">
           <div class="row">
             <div class="col-lg-12 post-owner-description">
               <h3><a href="showProfilePage.php?username='  .$lastPost['username']. '">'. $lastPost['username'] . '</a></h3>
