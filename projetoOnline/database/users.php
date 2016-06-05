@@ -126,7 +126,7 @@
   function getUserInfo($username)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT Race.name AS race_name, Species.name AS species_name, Gender.name AS gender_name, City.name AS city_name, Country.name AS country_name, User_user.name AS user_name, birthday
+    $stmt = $conn->prepare("SELECT Race.name AS race_name, Species.name AS species_name, Gender.name AS gender_name, City.name AS city_name, Country.name AS country_name, User_user.name AS user_name, birthday, email
                             FROM User_user
                             INNER JOIN City ON (User_user.cityID = City.cityID)
                             INNER JOIN Country ON (City.countryID = Country.countryID)

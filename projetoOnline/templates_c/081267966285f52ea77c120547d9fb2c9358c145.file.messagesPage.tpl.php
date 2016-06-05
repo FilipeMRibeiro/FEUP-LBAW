@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-02 00:59:54
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 18:07:41
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:82606024057472f6f0e7651-34775115%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '081267966285f52ea77c120547d9fb2c9358c145' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl',
-      1 => 1464821989,
+      1 => 1465142818,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_57472f6f19b465_94846136',
   'variables' => 
   array (
+    'username' => 0,
     'chats' => 0,
     'chat' => 0,
   ),
@@ -45,6 +46,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   </head>
   <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
+  <span class="session-Username" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</span>
   <div class="container-fluid main">
     <div class="row">
       <div class="col-lg-12 panel panel-default">
@@ -75,7 +78,8 @@ $_smarty_tpl->tpl_vars['chat']->_loop = true;
           <div class="panel-content">
             <div class="col-lg-12">
               <div class="row">
-                <div class="col-lg-12 panel panel-default messages-panel" style="height:300px;">
+                <div class="col-lg-12 panel panel-default messages-panel messages-panel<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
+" style="height:300px;">
                   <div class="chat-space<?php echo $_smarty_tpl->tpl_vars['chat']->value['chatid'];?>
  chat-space">
 

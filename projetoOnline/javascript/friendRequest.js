@@ -1,5 +1,5 @@
 $(function() {
-  $(".accept").click(function(e) {
+  $(".chat-space").on('click', '.accept', function(e) {
     var username = $(".username").html();
     var chatID = $(".chatID").html();
     $(this).replaceWith('<p><p style="color: green;"> Friend Request Accepted</p> </p>');
@@ -20,15 +20,21 @@ $(function() {
 });
 
 $(function() {
-  $(".decline").click(function(e) {
+  $(".chat-space").on('click', '.decline', function(e) {
+    var username = $(".username").html();
+    var chatID = $(".chatID").html();
+    $(this).replaceWith('<p><p style="color: red;"> Friend Request Declined</p> </p>');
+    $(".decline").hide();
     e.preventDefault();
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: '../pages/declineFriendRequest.php',
+      data: {
+        senderUsername: username,
+        chatID: chatID
+      },
       success: function(html) {
         alert("Friend request declined!");
-        $(".decline").replaceWith('<p><p style="color: red;"> Friend Request Declined</p> </p>');
-        $(".accept").hide();
       }
     });
   });
