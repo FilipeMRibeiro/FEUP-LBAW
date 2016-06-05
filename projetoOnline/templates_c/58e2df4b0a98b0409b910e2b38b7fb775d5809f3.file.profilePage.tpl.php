@@ -1,32 +1,32 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:15:43
-         compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:129403641257472f3f9d7b96-63656259%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-27 00:40:09
+         compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/profilePage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:143385653857477b49c1db22-06164738%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '0b54d0d6e45228c106eda48a7a6d3fbd267eff9f' => 
+    '58e2df4b0a98b0409b910e2b38b7fb775d5809f3' => 
     array (
-      0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1463126026,
+      0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/profilePage.tpl',
+      1 => 1464266336,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '129403641257472f3f9d7b96-63656259',
+  'nocache_hash' => '143385653857477b49c1db22-06164738',
   'function' => 
   array (
   ),
   'variables' => 
   array (
     'userInfo' => 0,
-    'posts' => 0,
     'username' => 0,
+    'posts' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f3fab2af3_98119030',
+  'unifunc' => 'content_57477b49d1f416_53013775',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f3fab2af3_98119030')) {function content_57472f3fab2af3_98119030($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57477b49d1f416_53013775')) {function content_57477b49d1f416_53013775($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -70,6 +70,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               <p><i class="fa fa-map-marker fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['city_name'];?>
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
+              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</span> Adds friend </a></i></p>
+              <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>
         </div>

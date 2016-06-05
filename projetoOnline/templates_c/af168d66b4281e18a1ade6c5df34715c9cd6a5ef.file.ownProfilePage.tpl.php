@@ -1,4 +1,38 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 18:10:34
+         compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1104821582575056bed1ca91-82262581%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'af168d66b4281e18a1ade6c5df34715c9cd6a5ef' => 
+    array (
+      0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
+      1 => 1465139299,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1104821582575056bed1ca91-82262581',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_575056bee80839_38002060',
+  'variables' => 
+  array (
+    'userInfo' => 0,
+    'species' => 0,
+    'speciesName' => 0,
+    'race' => 0,
+    'country' => 0,
+    'countryName' => 0,
+    'city' => 0,
+    'posts' => 0,
+    'username' => 0,
+    'post' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_575056bee80839_38002060')) {function content_575056bee80839_38002060($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -39,7 +73,8 @@
 
     </style>
   </head>
-  {include file='common/headerAndNav.tpl'}
+  <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     <div class="container-fluid main">
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
@@ -50,14 +85,21 @@
           </div>
           <div class="row">
             <div class="col-lg-12 profile-information panel panel-default">
-              <p><span class="profile-name"> {$userInfo.user_name} </span> </p>
-              {if $userInfo.gender_name eq 'Male'}
-                <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
-              {/if}
-              <p><i class="fa fa-birthday-cake fa-lg"> {$userInfo.birthday} </i></p>
-              <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
-              <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
-              <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
+              <p><span class="profile-name"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['user_name'];?>
+ </span> </p>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Male') {?>
+                <p><i class="fa fa-mars fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <?php }?>
+              <p><i class="fa fa-birthday-cake fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
+ </i></p>
+              <p><i class="fa fa-paw fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['species_name'];?>
+ </i></p>
+              <p><i class="fa fa-paw fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['race_name'];?>
+ </i></p>
+              <p><i class="fa fa-map-marker fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['city_name'];?>
+, <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
+ </i></p>
             </div>
               <div class="col-lg-12 profile-information panel panel-default">
                 <br>
@@ -80,25 +122,38 @@
                         <input type="radio" name="gender" value="Female"> Female &nbsp
                         <input type="radio" name="gender" value="Other"> Other <br><br>
                         <p>Birthday:</p>
-                        <input type="date" name="birthday" value={$userInfo.birthday}><br><br>
+                        <input type="date" name="birthday" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
+><br><br>
                         <p>Email:</p>
-                        <input type="text" name="email" value={$userInfo.email}><br><br> 
+                        <input type="text" name="email" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['email'];?>
+><br><br> 
                         <p>Specie & Race:</p>
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle speciesRace" type="button" data-toggle="dropdown">Select
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
-                            {foreach $species as $speciesName}
+                            <?php  $_smarty_tpl->tpl_vars['speciesName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['speciesName']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['species']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['speciesName']->key => $_smarty_tpl->tpl_vars['speciesName']->value) {
+$_smarty_tpl->tpl_vars['speciesName']->_loop = true;
+?>
                             <li class="dropdown-submenu">
-                              <a class="test-submenu">{$speciesName.name} <span class="caret"></span></a>
+                              <a class="test-submenu"><?php echo $_smarty_tpl->tpl_vars['speciesName']->value['name'];?>
+ <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                {foreach $speciesName.race as $race}
-                                <li><button type="button" class="raceButton" name="race" value ="{$race.race_id}">{$race.race_name}</button></li>
-                                {/foreach}
+                                <?php  $_smarty_tpl->tpl_vars['race'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['race']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['speciesName']->value['race']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['race']->key => $_smarty_tpl->tpl_vars['race']->value) {
+$_smarty_tpl->tpl_vars['race']->_loop = true;
+?>
+                                <li><button type="button" class="raceButton" name="race" value ="<?php echo $_smarty_tpl->tpl_vars['race']->value['race_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['race']->value['race_name'];?>
+</button></li>
+                                <?php } ?>
                                 <li class="dropdown-submenu">
                               </ul>
                             </li>
-                            {/foreach}
+                            <?php } ?>
                           </ul>
                         </div>
                         <br>
@@ -107,17 +162,28 @@
                           <button class="btn btn-default dropdown-toggle countryCity" type="button" data-toggle="dropdown">Select
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
-                            {foreach $country as $countryName}
+                            <?php  $_smarty_tpl->tpl_vars['countryName'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['countryName']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['country']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['countryName']->key => $_smarty_tpl->tpl_vars['countryName']->value) {
+$_smarty_tpl->tpl_vars['countryName']->_loop = true;
+?>
                             <li class="dropdown-submenu">
-                              <a class="test-submenu">{$countryName.name} <span class="caret"></span></a>
+                              <a class="test-submenu"><?php echo $_smarty_tpl->tpl_vars['countryName']->value['name'];?>
+ <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                {foreach $countryName.city as $city}
-                                <li><button type="button" class="cityButton" name="city" value ="{$city.city_id}">{$city.city_name}</button></li>
-                                {/foreach}
+                                <?php  $_smarty_tpl->tpl_vars['city'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['city']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['countryName']->value['city']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['city']->key => $_smarty_tpl->tpl_vars['city']->value) {
+$_smarty_tpl->tpl_vars['city']->_loop = true;
+?>
+                                <li><button type="button" class="cityButton" name="city" value ="<?php echo $_smarty_tpl->tpl_vars['city']->value['city_id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['city']->value['city_name'];?>
+</button></li>
+                                <?php } ?>
                                 <li class="dropdown-submenu">
                               </ul>
                             </li>
-                            {/foreach}
+                            <?php } ?>
                           </ul> 
                         </div>
                           <br><br>
@@ -165,7 +231,11 @@
           </div>
 
           <div class="recentlyCreatedPostSpace"></div>
-          {foreach $posts as $post}
+          <?php  $_smarty_tpl->tpl_vars['post'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['post']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['posts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['post']->key => $_smarty_tpl->tpl_vars['post']->value) {
+$_smarty_tpl->tpl_vars['post']->_loop = true;
+?>
 
           <div class="row post-row">
             <div class="col-lg-3 post-profile-picture">
@@ -174,9 +244,13 @@
             <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
-                  <h3><a href="showProfilePage.php?username={$username}"> {$username} </a></h3>
-                  <p> {$post.description} </p>
-                  <p style="color: grey;"> {$post.date}  </p>
+                  <h3><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+ </a></h3>
+                  <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
+ </p>
+                  <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
+  </p>
                   <div id="pointer"></div>
                 </div>
               </div>
@@ -195,7 +269,7 @@
             </div>
           </div>
 
-          {/foreach}
+          <?php } ?>
 
         </div>
         <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
@@ -235,3 +309,4 @@
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php }} ?>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-26 19:16:31
-         compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:82606024057472f6f0e7651-34775115%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-03 09:54:04
+         compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/messagesPage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:21333691865751379c5d8552-76072919%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '081267966285f52ea77c120547d9fb2c9358c145' => 
+    '031f33eed308ed16ae7c5d6d388e3b22674ef26c' => 
     array (
-      0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/messagesPage.tpl',
-      1 => 1463086791,
+      0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/messagesPage.tpl',
+      1 => 1464266336,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '82606024057472f6f0e7651-34775115',
+  'nocache_hash' => '21333691865751379c5d8552-76072919',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57472f6f19b465_94846136',
+  'unifunc' => 'content_5751379c706cc1_07674577',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57472f6f19b465_94846136')) {function content_57472f6f19b465_94846136($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5751379c706cc1_07674577')) {function content_5751379c706cc1_07674577($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
