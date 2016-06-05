@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 00:28:00
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 12:00:34
          compiled from "/opt/lbaw/lbaw1552/public_html/frmk/templates/users/profilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1193107249572264e0215cc1-95279950%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '62cbbfca8674ebbb918aeddc29be0e968dcdcf0c' => 
     array (
       0 => '/opt/lbaw/lbaw1552/public_html/frmk/templates/users/profilePage.tpl',
-      1 => 1463092075,
+      1 => 1463133618,
       2 => 'file',
     ),
   ),
@@ -70,8 +70,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               <p><i class="fa fa-map-marker fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['city_name'];?>
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
-              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</span> Add friend </a></i></p>
+              <p><i class="fa fa-user fa-lg"><a class="addFriend" href=""> <span class="receiverUsername hidden"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</span> Adds friend </a></i></p>
               <p><i class="fa fa-envelope fa-lg"> Send Message </i></p>
             </div>
           </div>

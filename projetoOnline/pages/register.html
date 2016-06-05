@@ -29,19 +29,23 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 vcenter">
           <div class="form">
-            <form method="post" action="checkRegister.php" class="register-form">
+            <form method="post" action="" class="register-form">
       				<img src="../images/logo.png" alt="logo" class="img-responsive" />
               <div class="name-group">
                 <input type="name" name="name" required class="form-control" placeholder="Name" />
-                <input type="name" name="username" required class="form-control" placeholder="Username" />
+                <input type="name" name="username" required class="form-control username" placeholder="Username" />
+                <p class="username-error" style="color:red; display:none;"> Username can't have any special character and must be between 5 and 15 characters. </p>
               </div>
       				<div class="form-group">
       					<input type="email" name="email" required class="form-control email" placeholder="Email Address" />
                 <input type="email" name="email" required class="form-control confirmEmail" placeholder=" Confirm Email Address" />
+                <p class="email-error" style="color:red; display:none;"> Emails don't match. </p>
       				</div>
       				<div class="input-group password-group">
-      					<input type="password" name="password" required class="form-control passoword" placeholder="Password" />
+      					<input type="password" name="password" required class="form-control password" placeholder="Password" />
       					<input type="password" name="confirmPassword" required class="form-control confirmPassword" placeholder="Confirm Password" />
+                <p class="password-error-1" style="color:red; display:none;"> Passwords don't match. </p>
+                <p class="password-error-2" style="color:red; display:none;"> Password must be between 8 and 15 characters. Only @, * and # can be used as special characters. </p>
       				</div>
               <div class="input-group">
                 <label for="birthday"> Birthday: </label>

@@ -38,7 +38,10 @@
 
     $stmt->execute(array($username));
 
-    return $stmt->fetch();
+    if($stmt->rowCount() > 0)
+      return $stmt->fetch();
+    else
+      return false;
   }
 
   function getUsername($userID)
@@ -102,13 +105,31 @@
     return $stmt->fetchAll();
   }
 
+  function getFeedPosts($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT *, User_user.username, FriendRequest.senderID, FriendRequest.receiverID
+                             FROM Post
+                             INNER JOIN User_user ON (User_user.userID = Post.userID)
+						INNER JOIN FriendRequest ON (FriendRequest.senderID = ? AND FriendRequest.receiverID = Post.userID)
+						UNION SELECT *, User_user.username, FriendRequest.senderID, FriendRequest.receiverID
+                             FROM Post
+                             INNER JOIN User_user ON (User_user.userID = Post.userID)
+						INNER JOIN FriendRequest ON (FriendRequest.receiverID = ? AND FriendRequest.senderID = Post.userID)
+                            ORDER BY postID DESC");
+
+	$stmt->execute(array($userID, $userID));
+
+    return $stmt->fetchAll();
+  }
+
   function getUserInfo($username)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT Race.name AS race_name, Species.name AS species_name, Gender.name AS gender_name, City.name AS city_name, Country.name AS country_name, User_user.name AS user_name, birthday
+    $stmt = $conn->prepare("SELECT Race.name AS race_name, Species.name AS species_name, Gender.name AS gender_name, City.name AS city_name, Country.name AS country_name, User_user.name AS user_name, birthday, email
                             FROM User_user
                             INNER JOIN City ON (User_user.cityID = City.cityID)
-                            INNER JOIN Country ON (City.cityID = Country.countryID)
+                            INNER JOIN Country ON (City.countryID = Country.countryID)
                             INNER JOIN Race ON (User_user.raceID = Race.raceID)
                             INNER JOIN Species ON (Race.speciesID = Species.speciesID)
                             INNER JOIN Gender ON (User_user.genderID = Gender.genderID)
@@ -117,6 +138,18 @@
     $stmt->execute(array($username));
 
     return $stmt->fetch();
+  }
+
+  function getUserDetails($username)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT cityID, raceID, genderID, name, birthday, email
+                            FROM User_user
+                            WHERE username = ?");
+
+    $stmt->execute(array($username));
+
+    return $stmt->fetch();                    
   }
 
   function sendFriendRequest($senderID, $receiverID)
@@ -154,7 +187,7 @@
     $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description, date)
                             VALUES (?, ?, ?, ?)");
 
-    return $stmt->execute(array($chatID, $userID, $description, date("Y-m-d")));
+    return $stmt->execute(array($chatID, $userID, $description, date("h:i:sa")));
   }
 
   function createChat($name)
@@ -212,4 +245,75 @@
 
     return $stmt->fetchAll();
   }
+
+  function getFriends($userID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT senderID AS userID
+                            FROM FriendRequest
+                            WHERE accepted = ? AND receiverID = ?
+                            UNION
+                            SELECT receiverID AS userID
+                            FROM FriendRequest
+                            WHERE accepted = ? AND senderID = ?");
+
+    $stmt->execute(array(1, $userID, 1, $userID));
+
+    return $stmt->fetchAll();
+  }
+
+  function updateInfo($userID, $genderID, $birthday, $email, $raceID, $cityID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("UPDATE User_user
+                            SET genderID = ?, birthday = ?, email = ?, raceID= ?, cityID = ?
+                            WHERE userID = ?");
+
+    return $stmt->execute(array($genderID,$birthday, $email, $raceID,$cityID,$userID));
+  }
+
+  function getSpecies(){
+    global $conn;
+    $stmt = $conn->prepare("SELECT name 
+                            FROM Species");
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+  }
+
+  function getRaces($speciesName){
+    global $conn;
+    $stmt = $conn->prepare("SELECT Race.name AS race_name , Race.raceID AS race_id
+                            FROM Race
+                            JOIN Species ON (Race.speciesID = Species.speciesID)
+                            WHERE Species.name = ?");
+
+    $stmt->execute(array($speciesName));
+
+    return $stmt->fetchAll();
+  }
+
+  function getCountry(){
+    global $conn;
+    $stmt = $conn->prepare("SELECT name 
+                            FROM Country");
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+  }
+
+  function getCities($countryName){
+    global $conn;
+    $stmt = $conn->prepare("SELECT City.name AS city_name , City.cityID AS city_id
+                            FROM City
+                            JOIN Country ON (City.countryID = Country.countryID)
+                            WHERE Country.name = ?");
+
+    $stmt->execute(array($countryName));
+
+    return $stmt->fetchAll();
+  }
+
 ?>
