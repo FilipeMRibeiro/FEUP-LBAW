@@ -18,6 +18,7 @@
     <title>Pawz</title>
   </head>
   {include file='common/headerAndNav.tpl'}
+  <span class="session-Username" style="display:none;">{$username}</span>
   <div class="container-fluid main">
     <div class="row">
       <div class="col-lg-12 panel panel-default">
@@ -37,7 +38,7 @@
           <div class="panel-content">
             <div class="col-lg-12">
               <div class="row">
-                <div class="col-lg-12 panel panel-default messages-panel" style="height:300px;">
+                <div class="col-lg-12 panel panel-default messages-panel messages-panel{$chat.chatid}" style="height:300px;">
                   <div class="chat-space{$chat.chatid} chat-space">
 
                   </div>

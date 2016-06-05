@@ -35,8 +35,8 @@
           $chatID = current(getChatID($nameOption1));
           createUserChat($userID, $chatID);
           createUserChat(current(getUserID($receiverUsername)), $chatID);
-          $description = 'The user '. '<span class="username">'.$_SESSION['username'].'</span> wants to add you as friend.
-          <button type="button" class="accept"> Accept </button>
+          $description = 'The user '. '<span class="username">'.$_SESSION['username'].'</span> wants to add you as friend.' .
+          '<button type="button" class="accept"> Accept </button>
           <button type="button" class="decline"> Decline </button>
           <span class="hidden chatID">'.$chatID.'</span>';
           sendMessage($chatID, $userID, $description);

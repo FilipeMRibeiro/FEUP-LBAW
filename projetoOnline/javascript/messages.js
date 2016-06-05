@@ -3,7 +3,6 @@ setInterval(checkMessages, 300);
 setInterval(checkPreview, 300);
 
 var $chatbox = $('.chat-box');
-var messagesPanel = $('.messages-panel')
 
 $chatbox.on('click', function() {
   chatID = $(this).find('.getChatID').text();
@@ -17,12 +16,14 @@ $chatbox.on('click', function() {
   $('.' + chat).removeClass("non-selected");
   $('.' + chat).addClass("selected");
 
+  var messagesPanel = $('.messages-panel'+chatID);
   messagesPanel.animate({ scrollTop: messagesPanel.prop ("scrollHeight") - messagesPanel.height() }, 1);
 });
 
 
 $('.submitMessage').click(function(e) {
   e.preventDefault();
+  var messagesPanel = $('.messages-panel'+chatID);
   if($('.messageForm').find('.messageToSend'+chatID).val() != '')
   {
     var formData = '&description=' + $('.messageForm').find('.messageToSend'+chatID).val() + '&chatid=' + chatID;
@@ -41,6 +42,7 @@ $('.submitMessage').click(function(e) {
 });
 
 function checkMessages() {
+  var username = $('.session-Username').text();
   $.ajax({
     type: 'post',
     url: '../pages/checkNewMessages.php',
@@ -51,7 +53,8 @@ function checkMessages() {
       $.each( html, function( i, el ) {
         nodeNames[ i ] = $(this).text().trim();
         nodeNames[i] = nodeNames[i].substr(0,nodeNames[i].indexOf(' '));
-        $('.chat-space'+nodeNames[i]).append(el);
+        if($(this).find('.username').text() != username)
+          $('.chat-space'+nodeNames[i]).append(el);
       });
     }
   });
