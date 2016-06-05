@@ -37,3 +37,7 @@ body {
 .group-row {
   margin-top: 0%;
 }
+
+.panel-heading a {
+	margin-left: 74%;
+}

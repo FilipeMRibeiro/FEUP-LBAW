@@ -17,6 +17,7 @@
 
     <title>Pawz</title>
   </head>
+  <body>
   {include file='common/headerAndNav.tpl'}
     <div class="container-fluid main">
       <div class="row">
