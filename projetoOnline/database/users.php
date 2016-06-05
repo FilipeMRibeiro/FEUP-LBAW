@@ -217,7 +217,10 @@
 
     $stmt->execute(array($name));
 
-    return $stmt->fetch();
+    if($stmt->rowCount() > 0)
+      return $stmt->fetch();
+    else
+      return false;
   }
 
   function getLastMessage($chatID)
@@ -275,6 +278,7 @@
 
     return $stmt->fetch();
   }
+
   function getFriends($userID)
   {
     global $conn;
@@ -290,59 +294,4 @@
 
     return $stmt->fetchAll();
   }
-
-  function updateInfo($userID, $genderID, $birthday, $email, $raceID, $cityID)
-  {
-    global $conn;
-    $stmt = $conn->prepare("UPDATE User_user
-                            SET genderID = ?, birthday = ?, email = ?, raceID= ?, cityID = ?
-                            WHERE userID = ?");
-
-    return $stmt->execute(array($genderID,$birthday, $email, $raceID,$cityID,$userID));
-  }
-
-  function getSpecies(){
-    global $conn;
-    $stmt = $conn->prepare("SELECT name 
-                            FROM Species");
-
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-  }
-
-  function getRaces($speciesName){
-    global $conn;
-    $stmt = $conn->prepare("SELECT Race.name AS race_name , Race.raceID AS race_id
-                            FROM Race
-                            JOIN Species ON (Race.speciesID = Species.speciesID)
-                            WHERE Species.name = ?");
-
-    $stmt->execute(array($speciesName));
-
-    return $stmt->fetchAll();
-  }
-
-  function getCountry(){
-    global $conn;
-    $stmt = $conn->prepare("SELECT name 
-                            FROM Country");
-
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-  }
-
-  function getCities($countryName){
-    global $conn;
-    $stmt = $conn->prepare("SELECT City.name AS city_name , City.cityID AS city_id
-                            FROM City
-                            JOIN Country ON (City.countryID = Country.countryID)
-                            WHERE Country.name = ?");
-
-    $stmt->execute(array($countryName));
-
-    return $stmt->fetchAll();
-  }
-
 ?>
