@@ -57,7 +57,7 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> {$post.upvotes} </p>
+            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> </p>
             </div>
           </div>
 

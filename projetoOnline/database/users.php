@@ -335,12 +335,13 @@
     return $stmt->fetchAll();
   }
 
-  function getPostUpVotes($post){
+  function getPostUpvotes($post){
     global $conn;
-    $stml = $conn->prepare("SELECT COUNT(*)
+    $stmt = $conn->prepare("SELECT *
                             FROM Upvote
-                            WHERE Upvote.postID = ?"); 
+                            WHERE postID = ?");
     $stmt->execute(array($post));
-    return $stmt->fetch();
+
+    return $stmt->rowCount();
   }
 ?>

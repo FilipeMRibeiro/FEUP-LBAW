@@ -11,7 +11,7 @@
 
   foreach ($posts as &$post)
   {
-    $post['upvotes'] = current(getPostUpVotes($post['postid']));
+    $post['upvotes'] = getPostUpvotes($post['postid']);
   }
 
   $smarty->assign('posts', $posts);
