@@ -57,7 +57,11 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> </p>
+            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> 
+              <form action="#" class="likePost" method="POST"> 
+                <span class="meuPostID" style="display:none;"> {$post.postid} </span>
+                <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+              </form></p>
             </div>
           </div>
 

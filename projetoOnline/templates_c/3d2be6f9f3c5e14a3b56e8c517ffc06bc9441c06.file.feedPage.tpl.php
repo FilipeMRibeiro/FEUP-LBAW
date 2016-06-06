@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 23:56:29
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 15:35:58
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47694758057477b8637ca64-14929979%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3d2be6f9f3c5e14a3b56e8c517ffc06bc9441c06' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1465160184,
+      1 => 1465216550,
       2 => 'file',
     ),
   ),
@@ -93,8 +93,13 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvote'];?>
- </p>
+            <p> <i class="fa fa-thumbs-up fa-lg"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
+ </i> 
+              <form action="#" class="likePost" method="POST"> 
+                <span class="meuPostID" style="display:none;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+ </span>
+                <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+              </form></p>
             </div>
           </div>
 
