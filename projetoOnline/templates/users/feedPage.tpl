@@ -25,11 +25,10 @@
             <div class="col-lg-12 post-bar panel panel-default">
               <form action="#" class="submitPost" method="POST" role="form">
                 <div class="col-lg-2 picture-share-something">
-                  <img class="img" src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+                  <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
                 </div>
                 <div class="col-lg-8 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
-                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -50,7 +49,6 @@
                 <div class="col-lg-12 post-owner-description">
                   <h3><a href="../pages/showProfilePage.php?username={$post.username}"> {$post.username} </a> </h3>
                   <p> {$post.description}. </p>
-                  <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/{$post.postid}">
                   <p style="color: grey;"> {$post.date}  </p>
                   <div id="pointer"></div>
                 </div>
@@ -59,7 +57,15 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> </p>
+              <p><form action="#" class="likePost" method="POST">
+                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> {$post.upvotes}</span> </i> </p>
+                <span class="getPostID" style="display:none;"> {$post.postid} </span>
+                {if $post.liked eq 0}
+                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+                {else}
+                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
+                {/if}
+              </form></p>
             </div>
           </div>
 
@@ -99,6 +105,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="../javascript/feedPost.js"></script>
+    <script src="../javascript/likePost.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

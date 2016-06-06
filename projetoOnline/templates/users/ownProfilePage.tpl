@@ -187,18 +187,19 @@
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-12 post-image">
-                  <img class="img" src="../images/rex_and_bae.png" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 10 <i class="fa fa-comment"></i> 4 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-9 ">
+              <p><form action="#" class="likePost" method="POST">
+                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> {$post.upvotes}</span> </i> </p>
+                <span class="getPostID" style="display:none;"> {$post.postid} </span>
+                {if $post.liked eq 0}
+                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+                {else}
+                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
+                {/if}
+              </form></p>
             </div>
           </div>
 
@@ -238,6 +239,7 @@
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
     <script src="../javascript/editProfile.js"></script>
+    <script src="../javascript/likePost.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

@@ -68,10 +68,9 @@
   function getUserPosts($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT *, User_user.username
+    $stmt = $conn->prepare("SELECT *
                             FROM Post
-                            INNER JOIN User_user ON (User_user.userID = Post.userID)
-                            WHERE Post.userID = ?
+                            WHERE userID = ?
                             ORDER BY postID DESC");
 
     $stmt->execute(array($userID));
@@ -344,5 +343,38 @@
     $stmt->execute(array($post));
 
     return $stmt->rowCount();
+  }
+
+  function createUpvote($user, $post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO Upvote (userid, postid)
+                            VALUES (?, ?)");
+
+    return $stmt->execute(array($user, $post));
+  }
+
+  function deleteUpvote($user, $post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("DELETE FROM Upvote
+                            WHERE userid = ? AND postid = ?");
+
+    return $stmt->execute(array($user, $post));
+  }
+
+  function checkLikedPost($user,$post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT *
+                            FROM Upvote
+                            WHERE postid = ? AND userid = ?");
+
+    $stmt->execute(array($post, $user));
+    if($stmt->rowCount() > 0)
+      return true;
+    else {
+      return false;
+    }
   }
 ?>
