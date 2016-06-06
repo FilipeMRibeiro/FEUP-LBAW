@@ -75,25 +75,28 @@
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showGroups.php"> Groups </a> </h2>
+              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showGroups.php"> My Groups </a> </h2>
               <div class="panel-content">
-                <ul>
-                  <li> <img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/> German Shepherds group </li>
-                  <li> <img class="img" src="../images/dog-group.jpg" style="width: 100%;"/> Dogs group </li>
-                </ul>
+				{foreach $groups as $group}
+				<div class="group-row">
+					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
+					<h3><a href="../pages/showJoinedGroupPage.php?id={$group.communityid}"> {$group.name} </a></h3>
+				 </div>
+				 {/foreach}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 events panel panel-default">
-              <h3 style="text-align: center;" class="panel-heading"> <a href="../pages/showEvents.php"> Events </a> </h3>
-              <ul class="panel-content">
-                <li>
-                  <h4> Dogs Race </h4>
-                  <img src="../images/corrida-caes.jpg" style="width: 100%;"/>
-                  <p> Friday 20:00h, 18 March 2016 </p>
-                </li>
-              </ul>
+              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showEvents.php"> My Events </a> </h2>
+              <div class="panel-content">
+                {foreach $events as $event}
+				<div class="event-row">
+					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
+					<h3><a href="../pages/showJoinedEventPage.php?id={$event.eventid}"> {$event.name} </a></h3>
+				 </div>
+				 {/foreach}
+              </div>
             </div>
           </div>
         </div>
