@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:11:42
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 19:33:19
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1660827455575461b0116fc5-16120380%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b54d0d6e45228c106eda48a7a6d3fbd267eff9f' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1465153086,
+      1 => 1465234334,
       2 => 'file',
     ),
   ),
@@ -230,6 +230,7 @@ $_smarty_tpl->tpl_vars['city']->_loop = true;
               <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
+                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -247,7 +248,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
           <div class="row post-row">
             <div class="col-lg-3 post-profile-picture">
-              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['username'];?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
             <div class="col-lg-9 post-information">
               <div class="row">
@@ -257,6 +259,8 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
  </a></h3>
                   <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
  </p>
+                  <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+">
                   <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
   </p>
                   <div id="pointer"></div>

@@ -25,10 +25,11 @@
             <div class="col-lg-12 post-bar panel panel-default">
               <form action="#" class="submitPost" method="POST" role="form">
                 <div class="col-lg-2 picture-share-something">
-                  <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+                  <img class="img" src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
                 </div>
                 <div class="col-lg-8 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
+                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -49,28 +50,22 @@
                 <div class="col-lg-12 post-owner-description">
                   <h3><a href="../pages/showProfilePage.php?username={$post.username}"> {$post.username} </a> </h3>
                   <p> {$post.description}. </p>
+                  <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/{$post.postid}">
                   <p style="color: grey;"> {$post.date}  </p>
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-8 post-image">
-                  <img class="img" src="../images/sloth-chilling.jpg" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 2 <i class="fa fa-comment"></i> 0 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 ">
+            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> </p>
             </div>
           </div>
 
           {/foreach}
-
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">

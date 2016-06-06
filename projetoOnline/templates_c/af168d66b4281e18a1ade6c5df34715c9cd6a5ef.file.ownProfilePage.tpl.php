@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 18:10:34
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 22:42:00
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1104821582575056bed1ca91-82262581%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af168d66b4281e18a1ade6c5df34715c9cd6a5ef' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1465139299,
+      1 => 1465155513,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_575056bee80839_38002060',
   'variables' => 
   array (
+    'username' => 0,
     'userInfo' => 0,
     'species' => 0,
     'speciesName' => 0,
@@ -27,7 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'countryName' => 0,
     'city' => 0,
     'posts' => 0,
-    'username' => 0,
     'post' => 0,
   ),
   'has_nocache_code' => false,
@@ -80,7 +80,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
-              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
@@ -89,6 +90,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
  </span> </p>
               <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Male') {?>
                 <p><i class="fa fa-mars fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <?php }?>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Female') {?>
+                <p><i class="fa fa-venus fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
+ </i></p>
+              <?php }?>
+              <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Other') {?>
+                <p><i class="fa fa-transgender-alt fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['gender_name'];?>
  </i></p>
               <?php }?>
               <p><i class="fa fa-birthday-cake fa-lg"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
@@ -104,7 +113,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
               <div class="col-lg-12 profile-information panel panel-default">
                 <br>
                 <p><i class="fa fa-cog fa-lg"><a id="editProfileButton" data-toggle="modal" data-target="#myModal1"> Edit Profile </a></i></p>
-                <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>             
+                <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>
               </div>
               <!-- Edit profile box -->
               <div class="modal fade" id="myModal1" role="dialog">
@@ -126,8 +135,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ><br><br>
                         <p>Email:</p>
                         <input type="text" name="email" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['email'];?>
-><br><br> 
-                        <p>Specie & Race:</p>
+><br><br>
+                        <p>Species & Race:</p>
                         <div class="dropdown">
                           <button class="btn btn-default dropdown-toggle speciesRace" type="button" data-toggle="dropdown">Select
                           <span class="caret"></span></button>
@@ -184,7 +193,7 @@ $_smarty_tpl->tpl_vars['city']->_loop = true;
                               </ul>
                             </li>
                             <?php } ?>
-                          </ul> 
+                          </ul>
                         </div>
                           <br><br>
                         <button type="submit" id="submitButtonEditProfile" class="btn btn-default">Save</button>
@@ -203,11 +212,10 @@ $_smarty_tpl->tpl_vars['city']->_loop = true;
                       <h4 class="modal-title">Upload New Profile Picture</h4>
                     </div>
                     <div class="modal-body">
-                      <form method="POST" class ="submitProfilePic" action="#">
-
-
-                        <br><br>
-                        <button type="submit" id="submitButtonProfilePic" class="btn btn-default">Save</button>
+                      <form action="#" method="post" enctype="multipart/form-data" class="upload-image-form">
+                        <p>Select image to upload:</p>
+                        <input type="file" name="image" id="fileToUpload">
+                        <input type="submit" value="Upload Image" name="submit" class="upload-image-submit">
                       </form>
                     </div>
                   </div>

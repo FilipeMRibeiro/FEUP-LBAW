@@ -68,9 +68,10 @@
   function getUserPosts($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT *
+    $stmt = $conn->prepare("SELECT *, User_user.username
                             FROM Post
-                            WHERE userID = ?
+                            INNER JOIN User_user ON (User_user.userID = Post.userID)
+                            WHERE Post.userID = ?
                             ORDER BY postID DESC");
 
     $stmt->execute(array($userID));
@@ -333,5 +334,15 @@
                             WHERE Country.name = ?");
     $stmt->execute(array($countryName));
     return $stmt->fetchAll();
+  }
+
+  function getPostUpvotes($post){
+    global $conn;
+    $stmt = $conn->prepare("SELECT *
+                            FROM Upvote
+                            WHERE postID = ?");
+    $stmt->execute(array($post));
+
+    return $stmt->rowCount();
   }
 ?>

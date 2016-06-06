@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:08:45
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 19:31:35
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28992985657545d52af0562-98124565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed3f41b5d61af4d7672149307a62b13c3844ac57' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1465153720,
+      1 => 1465233959,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_57545d52c15c41_12191506',
   'variables' => 
   array (
+    'username' => 0,
     'posts' => 0,
     'post' => 0,
   ),
@@ -52,10 +53,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="col-lg-12 post-bar panel panel-default">
               <form action="#" class="submitPost" method="POST" role="form">
                 <div class="col-lg-2 picture-share-something">
-                  <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+                  <img class="img" src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
                 </div>
                 <div class="col-lg-8 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
+                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -84,29 +87,25 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
  </a> </h3>
                   <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
 . </p>
+                  <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+">
                   <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
   </p>
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-8 post-image">
-                  <img class="img" src="../images/sloth-chilling.jpg" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 2 <i class="fa fa-comment"></i> 0 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-10 ">
+            <p> <i class="fa fa-thumbs-up fa-lg"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
+ </i> </p>
             </div>
           </div>
 
           <?php } ?>
-
         </div>
+
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">
