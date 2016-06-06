@@ -57,10 +57,14 @@
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> <i class="fa fa-thumbs-up fa-lg"> {$post.upvotes} </i> 
-              <form action="#" class="likePost" method="POST"> 
-                <span class="meuPostID" style="display:none;"> {$post.postid} </span>
-                <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+              <p><form action="#" class="likePost" method="POST">
+                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> {$post.upvotes}</span> </i> </p>
+                <span class="getPostID" style="display:none;"> {$post.postid} </span>
+                {if $post.liked eq 0}
+                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+                {else}
+                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
+                {/if}
               </form></p>
             </div>
           </div>
@@ -101,6 +105,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="../javascript/feedPost.js"></script>
+    <script src="../javascript/likePost.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

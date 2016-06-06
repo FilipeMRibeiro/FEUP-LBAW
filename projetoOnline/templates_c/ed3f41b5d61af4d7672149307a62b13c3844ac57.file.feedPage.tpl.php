@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 00:57:16
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 20:32:10
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28992985657545d52af0562-98124565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed3f41b5d61af4d7672149307a62b13c3844ac57' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1465167433,
+      1 => 1465237921,
       2 => 'file',
     ),
   ),
@@ -93,8 +93,17 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
             <div class="col-lg-2">
             </div>
             <div class="col-lg-10 ">
-            <p> <i class="fa fa-thumbs-up fa-lg"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
- </i> </p>
+              <p><form action="#" class="likePost" method="POST">
+                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
+</span> </i> </p>
+                <span class="getPostID" style="display:none;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+ </span>
+                <?php if ($_smarty_tpl->tpl_vars['post']->value['liked']==0) {?>
+                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+                <?php } else { ?>
+                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
+                <?php }?>
+              </form></p>
             </div>
           </div>
 
@@ -134,6 +143,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="../javascript/feedPost.js"></script>
+    <script src="../javascript/likePost.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

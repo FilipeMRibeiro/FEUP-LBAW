@@ -10,7 +10,7 @@
   $posts = getUserPosts($userID);
   $userInfo = getUserInfo($_SESSION['username']);
 
-  if(createUpvote($userID, $_POST['postid']))
+  if(deleteUpvote($userID, $_POST['postid']))
   {
      echo getPostUpvotes($_POST['postid']);
   }

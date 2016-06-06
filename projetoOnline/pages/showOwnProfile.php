@@ -24,12 +24,22 @@
     $countryName['city'] = getCities($countryName['name']);
   }
 
+  foreach ($posts as &$post)
+  {
+    $post['upvotes'] = getPostUpvotes($post['postid']);
+    if(checkLikedPost($userID, $post['postid']))
+      $post['liked'] = 1;
+    else {
+      $post['liked'] = 0;
+    }
+  }
+
   $smarty->assign('posts', $posts);
   $smarty->assign('userInfo', $userInfo);
   $smarty->assign('username', $_SESSION['username']);
   $smarty->assign('species', $species);
   $smarty->assign('country', $country);
-              
+
   $smarty->display('users/ownProfilePage.tpl');
 
 ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 21:11:42
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 21:10:06
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1660827455575461b0116fc5-16120380%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b54d0d6e45228c106eda48a7a6d3fbd267eff9f' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1465153086,
+      1 => 1465240203,
       2 => 'file',
     ),
   ),
@@ -262,18 +262,21 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
                   <div id="pointer"></div>
                 </div>
               </div>
-              <!--
-              <div class="row">
-                <div class="col-lg-12 post-image">
-                  <img class="img" src="../images/rex_and_bae.png" style="width: 90%;" alt="Image Posted"/>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-12 post-comments-likes">
-                  <p> <i class="fa fa-thumbs-up"></i> 10 <i class="fa fa-comment"></i> 4 </p>
-                </div>
-              </div>
-            -->
+            </div>
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-9 ">
+              <p><form action="#" class="likePost" method="POST">
+                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
+</span> </i> </p>
+                <span class="getPostID" style="display:none;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+ </span>
+                <?php if ($_smarty_tpl->tpl_vars['post']->value['liked']==0) {?>
+                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
+                <?php } else { ?>
+                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
+                <?php }?>
+              </form></p>
             </div>
           </div>
 
@@ -313,6 +316,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
     <script src="../javascript/editProfile.js"></script>
+    <script src="../javascript/likePost.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

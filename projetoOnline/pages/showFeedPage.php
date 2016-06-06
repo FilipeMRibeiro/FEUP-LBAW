@@ -12,6 +12,11 @@
   foreach ($posts as &$post)
   {
     $post['upvotes'] = getPostUpvotes($post['postid']);
+    if(checkLikedPost($userID, $post['postid']))
+      $post['liked'] = 1;
+    else {
+      $post['liked'] = 0;
+    }
   }
 
   $smarty->assign('posts', $posts);

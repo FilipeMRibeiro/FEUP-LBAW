@@ -344,4 +344,37 @@
 
     return $stmt->rowCount();
   }
+
+  function createUpvote($user, $post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO Upvote (userid, postid)
+                            VALUES (?, ?)");
+
+    return $stmt->execute(array($user, $post));
+  }
+
+  function deleteUpvote($user, $post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("DELETE FROM Upvote
+                            WHERE userid = ? AND postid = ?");
+
+    return $stmt->execute(array($user, $post));
+  }
+
+  function checkLikedPost($user,$post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT *
+                            FROM Upvote
+                            WHERE postid = ? AND userid = ?");
+
+    $stmt->execute(array($post, $user));
+    if($stmt->rowCount() > 0)
+      return true;
+    else {
+      return false;
+    }
+  }
 ?>
