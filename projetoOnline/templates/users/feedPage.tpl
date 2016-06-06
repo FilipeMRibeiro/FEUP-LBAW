@@ -25,10 +25,11 @@
             <div class="col-lg-12 post-bar panel panel-default">
               <form action="#" class="submitPost" method="POST" role="form">
                 <div class="col-lg-2 picture-share-something">
-                  <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+                  <img src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
                 </div>
                 <div class="col-lg-8 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
+                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>

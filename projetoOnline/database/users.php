@@ -68,9 +68,10 @@
   function getUserPosts($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT *
+    $stmt = $conn->prepare("SELECT *, User_user.username
                             FROM Post
-                            WHERE userID = ?
+                            INNER JOIN User_user ON (User_user.userID = Post.userID)
+                            WHERE Post.userID = ?
                             ORDER BY postID DESC");
 
     $stmt->execute(array($userID));
