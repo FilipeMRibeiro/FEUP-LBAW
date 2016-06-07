@@ -20,8 +20,8 @@
     <div class="container-fluid main">
 		<div class="row">
 			<div class="created">
-				<div class="col-lg-12 panel panel-default">
-					<h2 class="panel-heading"> Groups I Created <a href="../pages/groupCreationPage.php"> <input type="button" value="Create Group" /></a></h2>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 panel panel-default">
+					<h2 class="panel-heading"> Groups I Created</h2> <a href="../pages/groupCreationPage.php"> <input type="button" value="Create Group" /></a>
 					{foreach $createdCommunities as $community}
 					<div class="col-lg-9 group-row">        
 						<div class="col-lg-9 group-information">

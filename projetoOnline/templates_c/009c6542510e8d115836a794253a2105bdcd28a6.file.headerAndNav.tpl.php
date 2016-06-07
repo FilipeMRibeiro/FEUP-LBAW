@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 22:41:26
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 14:08:17
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/common/headerAndNav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:136077047057477b49d5ebe0-38320644%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '009c6542510e8d115836a794253a2105bdcd28a6' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/common/headerAndNav.tpl',
-      1 => 1465155513,
+      1 => 1465297559,
       2 => 'file',
     ),
   ),
@@ -34,9 +34,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" action="../pages/search.php" role="search" method="post">
             <div class="form-group">
-              <input type="text" class="form-control search-input" placeholder="Search">
+              <input type="text" name="search-input" class="form-control search-input" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
@@ -44,6 +44,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <li><a href="showOwnProfile.php">Profile</a></li>
             <li><a href="showFriendList.php">Friends</a></li>
             <li><a href="showMessagesPage.php">Messages</a></li>
+			<li><a href="showGroups.php">Groups</a></li>
+			<li><a href="showEvents.php">Events</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

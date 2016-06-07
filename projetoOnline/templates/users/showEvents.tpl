@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="created">
 				<div class="col-lg-12 panel panel-default">
-					<h2 class="panel-heading"> Events I Created<a href="../pages/eventCreationPage.php"> <input type="button" value="Create Event" /></a> </h2>
+					<h2 class="panel-heading"> Events I Created</h2> <a href="../pages/eventCreationPage.php"> <input type="button" value="Create Event" /></a> 
 					{foreach $createdEvents as $event}
 					<div class="col-lg-9 event-row">        
 						<h3><a href="../pages/showCreatedEventPage.php?id={$event.eventid}"> {$event.name} </a></h3>
