@@ -76,7 +76,7 @@
                   <button type="submit" id="commentsButton" class="btn btn-info"> See Comments </button>
               </form></p>
             </div>
-            <div class="col-lg-12 comments-space{$post.postid}" style="display:none;">
+            <div class="col-lg-12 comments-space comments-space{$post.postid}" style="display:none;">
               <div class="col-lg-12">
                 <div class="col-lg-12 comment-information">
                   <div class="row commentsDisplay">
@@ -116,7 +116,6 @@
               <div class="panel-content">
 				{foreach $groups as $group}
 				<div class="group-row">
-					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
 					<h3><a href="../pages/showJoinedGroupPage.php?id={$group.communityid}"> {$group.name} </a></h3>
 				 </div>
 				 {/foreach}
@@ -129,7 +128,6 @@
               <div class="panel-content">
                 {foreach $events as $event}
 				<div class="event-row">
-					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
 					<h3><a href="../pages/showJoinedEventPage.php?id={$event.eventid}"> {$event.name} </a></h3>
 				 </div>
 				 {/foreach}
@@ -146,6 +144,7 @@
 
     <script src="../javascript/feedPost.js"></script>
     <script src="../javascript/likePost.js"></script>
+    <script src="../javascript/commentsPost.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

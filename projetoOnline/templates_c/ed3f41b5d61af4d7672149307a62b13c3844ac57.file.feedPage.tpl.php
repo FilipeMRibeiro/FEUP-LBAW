@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:48:15
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 14:20:45
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28992985657545d52af0562-98124565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed3f41b5d61af4d7672149307a62b13c3844ac57' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1465296492,
+      1 => 1465302042,
       2 => 'file',
     ),
   ),
@@ -175,7 +175,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['group']->key => $_smarty_tpl->tpl_var
 $_smarty_tpl->tpl_vars['group']->_loop = true;
 ?>
 				<div class="group-row">
-					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
 					<h3><a href="../pages/showJoinedGroupPage.php?id=<?php echo $_smarty_tpl->tpl_vars['group']->value['communityid'];?>
 "> <?php echo $_smarty_tpl->tpl_vars['group']->value['name'];?>
  </a></h3>
@@ -194,7 +193,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['event']->key => $_smarty_tpl->tpl_var
 $_smarty_tpl->tpl_vars['event']->_loop = true;
 ?>
 				<div class="event-row">
-					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
 					<h3><a href="../pages/showJoinedEventPage.php?id=<?php echo $_smarty_tpl->tpl_vars['event']->value['eventid'];?>
 "> <?php echo $_smarty_tpl->tpl_vars['event']->value['name'];?>
  </a></h3>
@@ -213,6 +211,7 @@ $_smarty_tpl->tpl_vars['event']->_loop = true;
 
     <script src="../javascript/feedPost.js"></script>
     <script src="../javascript/likePost.js"></script>
+    <script src="../javascript/commentsPost.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

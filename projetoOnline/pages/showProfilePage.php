@@ -7,6 +7,8 @@
 
   $userID = current(getUserID($_GET['username']));
 
+  $userIDSession = current(getUserID($_SESSION['username']));
+
   $posts = getUserPosts($userID);
   $userInfo = getUserInfo($_GET['username']);
   $awards = getUserAwards($userID);
@@ -14,10 +16,12 @@
   foreach ($posts as &$post)
   {
     $post['upvotes'] = getPostUpvotes($post['postid']);
-    if(checkLikedPost($userID, $post['postid']))
+    if(checkLikedPost($userIDSession, $post['postid']))
       $post['liked'] = 1;
     else {
       $post['liked'] = 0;
+      $post['comments'] = getComments($post['postid']);
+      $post['numberOfComments'] = getNumberOfComments($post['postid']);
     }
   }
 

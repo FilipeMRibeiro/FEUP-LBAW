@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:13:45
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 14:22:58
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77199056157545dde1043c5-44866905%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff4aa5a524d431361df502e8d4921859a8e4b5ec' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl',
-      1 => 1465294421,
+      1 => 1465302175,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'userInfo' => 0,
     'posts' => 0,
     'post' => 0,
+    'comment' => 0,
     'awards' => 0,
     'award' => 0,
   ),
@@ -141,7 +142,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
             </div>
             <div class="col-lg-3">
             </div>
-            <div class="col-lg-9 ">
+            <div class="col-lg-2 ">
               <p><form action="#" class="likePost" method="POST">
                 <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
 </span> </i> </p>
@@ -153,6 +154,51 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
                   <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
                 <?php }?>
               </form></p>
+            </div>
+            <div class="col-lg-2">
+              <p><form action="#" class="commentsPost" method="POST">
+                <p> <i class="fa fa-comment fa-lg"><span class="comments"> <?php echo $_smarty_tpl->tpl_vars['post']->value['numberOfComments'];?>
+</span> </i> </p>
+                <span class="getPostID" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+ </span>
+                  <button type="submit" id="commentsButton" class="btn btn-info"> See Comments </button>
+              </form></p>
+            </div>
+            <div class="col-lg-12 comments-space<?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
+" style="display:none;">
+              <div class="col-lg-12">
+                <div class="col-lg-12 comment-information">
+                  <div class="row commentsDisplay">
+                    <div class="col-lg-12 comment-owner-description">
+                        <?php  $_smarty_tpl->tpl_vars['comment'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comment']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['post']->value['comments']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['comment']->key => $_smarty_tpl->tpl_vars['comment']->value) {
+$_smarty_tpl->tpl_vars['comment']->_loop = true;
+?>
+                        <p><a href="../pages/showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['comment']->value['username'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['comment']->value['username'];?>
+ </a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['description'];?>
+ </p>
+                        <?php } ?>
+                        <div class ="new-comments">
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                    <form class="comment-form" action="#" method="post">
+                      <input type="text" name="comment" class="comment-text" size="50" placeholder="Comment..."></textarea>
+                      <input type="submit" value="Send" class="btn btn-info send-comment">
+                    </form>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -193,6 +239,7 @@ $_smarty_tpl->tpl_vars['award']->_loop = true;
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
     <script src="../javascript/likePost.js"></script>
+    <script src="../javascript/commentsPost.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

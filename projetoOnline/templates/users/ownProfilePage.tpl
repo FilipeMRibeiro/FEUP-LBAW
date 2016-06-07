@@ -193,8 +193,8 @@
             </div>
             <div class="col-lg-3">
             </div>
-            <div class="col-lg-9 ">
-              <form action="#" class="likePost" method="POST">
+            <div class="col-lg-2 ">
+              <p><form action="#" class="likePost" method="POST">
                 <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> {$post.upvotes}</span> </i> </p>
                 <span class="getPostID" style="display:none;"> {$post.postid} </span>
                 {if $post.liked eq 0}
@@ -202,7 +202,42 @@
                 {else}
                   <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
                 {/if}
-              </form>
+              </form></p>
+            </div>
+            <div class="col-lg-2">
+              <p><form action="#" class="commentsPost" method="POST">
+                <p> <i class="fa fa-comment fa-lg"><span class="comments"> {$post.numberOfComments}</span> </i> </p>
+                <span class="getPostID" style="display:none;">{$post.postid} </span>
+                  <button type="submit" id="commentsButton" class="btn btn-info"> See Comments </button>
+              </form></p>
+            </div>
+            <div class="col-lg-12 comments-space comments-space{$post.postid}" style="display:none;">
+              <div class="col-lg-12">
+                <div class="col-lg-12 comment-information">
+                  <div class="row commentsDisplay">
+                    <div class="col-lg-12 comment-owner-description">
+                        {foreach $post.comments as $comment}
+                        <p><a href="../pages/showProfilePage.php?username={$comment.username}"> {$comment.username} </a> {$comment.description} </p>
+                        {/foreach}
+                        <div class ="new-comments">
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                    <form class="comment-form" action="#" method="post">
+                      <input type="text" name="comment" class="comment-text" size="50" placeholder="Comment..."></textarea>
+                      <input type="submit" value="Send" class="btn btn-info send-comment">
+                    </form>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -236,6 +271,7 @@
     <script src="../javascript/addFriend.js"></script>
     <script src="../javascript/editProfile.js"></script>
     <script src="../javascript/likePost.js"></script>
+    <script src="../javascript/commentsPost.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>
