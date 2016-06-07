@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 14:11:08
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 22:42:00
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1104821582575056bed1ca91-82262581%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'af168d66b4281e18a1ade6c5df34715c9cd6a5ef' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/ownProfilePage.tpl',
-      1 => 1465297872,
+      1 => 1465155513,
       2 => 'file',
     ),
   ),
@@ -29,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'city' => 0,
     'posts' => 0,
     'post' => 0,
-    'awards' => 0,
-    'award' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -69,12 +67,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         color: black;
       }
 
-      .cityButton{
-        background-color: white;
-        border: none;
-        color: black;
-      }
+      #editProfileButton{
 
+      }
 
     </style>
   </head>
@@ -82,15 +77,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <div class="container-fluid main">
       <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 profile-information-space">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profile-image">
+            <div class="col-lg-12 profile-image">
               <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 " onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profile-information panel panel-default">
+            <div class="col-lg-12 profile-information panel panel-default">
               <p><span class="profile-name"> <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['user_name'];?>
  </span> </p>
               <?php if ($_smarty_tpl->tpl_vars['userInfo']->value['gender_name']=='Male') {?>
@@ -115,7 +110,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 , <?php echo $_smarty_tpl->tpl_vars['userInfo']->value['country_name'];?>
  </i></p>
             </div>
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profile-information panel panel-default">
+              <div class="col-lg-12 profile-information panel panel-default">
                 <br>
                 <p><i class="fa fa-cog fa-lg"><a id="editProfileButton" data-toggle="modal" data-target="#myModal1"> Edit Profile </a></i></p>
                 <p><i class="fa fa-cog fa-lg"><a id="ProfilePicButton" data-toggle="modal" data-target="#myModal2"> New Profile Pic </a></i></p>
@@ -132,8 +127,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                       <form method="POST" class ="submitEditProfile" action="#">
 
                         <p>Gender:</p>
-                        <input type="radio" name="gender" value="Male"> Male &nbsp;
-                        <input type="radio" name="gender" value="Female"> Female &nbsp;
+                        <input type="radio" name="gender" value="Male"> Male &nbsp
+                        <input type="radio" name="gender" value="Female"> Female &nbsp
                         <input type="radio" name="gender" value="Other"> Other <br><br>
                         <p>Birthday:</p>
                         <input type="date" name="birthday" value=<?php echo $_smarty_tpl->tpl_vars['userInfo']->value['birthday'];?>
@@ -229,13 +224,12 @@ $_smarty_tpl->tpl_vars['city']->_loop = true;
               <!-- -->
           </div>
         </div>
-        <div class="col-lg-5 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 feed-space">
+        <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
           <div class="row">
             <div class="col-lg-12 post-bar panel panel-default">
-              <form method="POST" class="submitPost" action="#">
+              <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
-                  <input type="file" name="image" id="imageToUpload" accept="image/*">
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -253,8 +247,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
           <div class="row post-row">
             <div class="col-lg-3 post-profile-picture">
-              <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['username'];?>
-" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
             </div>
             <div class="col-lg-9 post-information">
               <div class="row">
@@ -264,52 +257,48 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
  </a></h3>
                   <p> <?php echo $_smarty_tpl->tpl_vars['post']->value['description'];?>
  </p>
-                  <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/<?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
-">
                   <p style="color: grey;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['date'];?>
   </p>
                   <div id="pointer"></div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-9 ">
-              <form action="#" class="likePost" method="POST">
-                <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
-</span> </i> </p>
-                <span class="getPostID" style="display:none;"> <?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
- </span>
-                <?php if ($_smarty_tpl->tpl_vars['post']->value['liked']==0) {?>
-                  <button type="submit" id="upvoteButton" class="btn btn-info"> Like </button>
-                <?php } else { ?>
-                  <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
-                <?php }?>
-              </form>
+              <!--
+              <div class="row">
+                <div class="col-lg-12 post-image">
+                  <img class="img" src="../images/rex_and_bae.png" style="width: 90%;" alt="Image Posted"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 post-comments-likes">
+                  <p> <i class="fa fa-thumbs-up"></i> 10 <i class="fa fa-comment"></i> 4 </p>
+                </div>
+              </div>
+            -->
             </div>
           </div>
 
           <?php } ?>
 
         </div>
-        <div class="col-lg-3 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12  activities-awards-column">
+        <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
           <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 awards panel panel-default">
-              <h2 class="panel-heading">Awards</h2>
+            <div class="col-lg-12 activities panel panel-default">
+              <h2 class="panel-heading">Recent Activities</h2>
+              <ul class="panel-content">
+                <li>  Running </li>
+                <li> Hunting </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 awards panel panel-default">
+              <h2 class="panel-heading">Awards(3)</h2>
               <div class="panel-body">
-                <?php  $_smarty_tpl->tpl_vars['award'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['award']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['awards']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['award']->key => $_smarty_tpl->tpl_vars['award']->value) {
-$_smarty_tpl->tpl_vars['award']->_loop = true;
-?>
-                <div class="award-row">
-                  <img src="../images/award.png" alt="Award"/>
-                  <h3> <?php echo $_smarty_tpl->tpl_vars['award']->value['description'];?>
- </h3>
-                  <h4> Event: <?php echo $_smarty_tpl->tpl_vars['award']->value['name'];?>
- </h4>
-                </div>
-                <?php } ?>
+                <img src="../images/award.png" style="width: 30%" alt="Award"/>
+                <img src="../images/award.png" style="width: 30%" alt="Award"/>
+                <img src="../images/award.png" style="width: 30%" alt="Award"/>
+                <p></p>
+                <a href=#>See all</a>
               </div>
             </div>
           </div>
@@ -324,7 +313,6 @@ $_smarty_tpl->tpl_vars['award']->_loop = true;
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
     <script src="../javascript/editProfile.js"></script>
-    <script src="../javascript/likePost.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

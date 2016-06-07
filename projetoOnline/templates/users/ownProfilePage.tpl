@@ -244,7 +244,7 @@
           {/foreach}
 
         </div>
-        <div class="col-lg-3 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12  activities-awards-column">
+        <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 awards panel panel-default">
               <h2 class="panel-heading">Awards</h2>
