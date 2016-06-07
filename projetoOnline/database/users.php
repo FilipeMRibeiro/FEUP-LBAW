@@ -378,4 +378,64 @@
       return false;
     }
   }
+
+  function getComments($post)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT *, User_user.username
+                            FROM Comment
+                            JOIN User_user ON (Comment.userID = User_user.userID)
+                            WHERE postid = ?
+                            ORDER BY date DESC");
+
+    $stmt->execute(array($post));
+
+    if($stmt->rowCount() > 0)
+      return $stmt->fetchAll();
+    else {
+      return false;
+    }
+  }
+
+  function searchUsers($search)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT userID FROM User_user
+                            WHERE to_tsvector(username|| ' ' || name) @@ plainto_tsquery(?)");
+
+    $stmt->execute(array($search));
+
+    return $stmt->fetchAll();
+  }
+
+  function searchEvents($search)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT eventid FROM Event
+                            WHERE to_tsvector(textsearch) @@ plainto_tsquery(?)");
+
+    $stmt->execute(array($search));
+
+    return $stmt->fetchAll();
+  }
+
+  function searchGroups($search)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT communityID FROM Community
+                            WHERE to_tsvector(textsearch) @@ plainto_tsquery(?)");
+
+    $stmt->execute(array($search));
+
+    return $stmt->fetchAll();
+  }
+
+  function createComment($user, $post, $description)
+  {
+    global $conn;
+    $stmt = $conn->prepare("INSERT INTO Comment(userid, postid, description)
+                            Values(?,?,?)");
+
+    return $stmt->execute(array($user, $post, $description));
+  }
 ?>

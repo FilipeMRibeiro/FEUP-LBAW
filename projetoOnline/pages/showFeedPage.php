@@ -17,6 +17,7 @@
     else {
       $post['liked'] = 0;
     }
+    $post['comments'] = getComments($post['postid']);
   }
 
   $smarty->assign('posts', $posts);

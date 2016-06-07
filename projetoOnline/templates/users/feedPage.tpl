@@ -49,7 +49,7 @@
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
                   <h3><a href="../pages/showProfilePage.php?username={$post.username}"> {$post.username} </a> </h3>
-                  <p> {$post.description}. </p>
+                  <p> {$post.description} </p>
                   <p style="color: grey;"> {$post.date}  </p>
                   <div id="pointer"></div>
                 </div>
@@ -57,7 +57,7 @@
             </div>
             <div class="col-lg-2">
             </div>
-            <div class="col-lg-10 ">
+            <div class="col-lg-1 ">
               <p><form action="#" class="likePost" method="POST">
                 <p> <i class="fa fa-thumbs-up fa-lg"><span class="upvotes"> {$post.upvotes}</span> </i> </p>
                 <span class="getPostID" style="display:none;"> {$post.postid} </span>
@@ -67,6 +67,38 @@
                   <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
                 {/if}
               </form></p>
+            </div>
+            <div class="col-lg-2">
+              <p><form action="#" class="commentsPost" method="POST">
+                <p> <i class="fa fa-comment fa-lg"><span class="comments"> {$post.upvotes}</span> </i> </p>
+                <span class="getPostID" style="display:none;">{$post.postid} </span>
+                  <button type="submit" id="commentsButton" class="btn btn-info"> See Comments </button>
+              </form></p>
+            </div>
+            <div class="col-lg-12 comments-space{$post.postid}" style="display:none;">
+              <div class="col-lg-12">
+                <div class="col-lg-12 comment-information">
+                  <div class="row commentsDisplay">
+                    <div class="col-lg-12 comment-owner-description">
+                        {foreach $post.comments as $comment}
+                        <p><a href="../pages/showProfilePage.php?username={$post.username}"> {$comment.username} </a> {$comment.description} <p>
+                        {/foreach}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                    <form class="comment-form" action="#" method="post">
+                      <input type="text" name="comment" class="comment-text" size="100" placeholder="Comment..."></textarea>
+                      <input type="submit" value="Send" class="btn btn-info send-comment">
+                    </form>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

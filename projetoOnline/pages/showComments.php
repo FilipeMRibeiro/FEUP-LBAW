@@ -6,13 +6,14 @@
   include 'expiredLogin.php';
 
   $userID = current(getUserID($_SESSION['username']));
+  $postID = $_POST['postid'];
 
   $posts = getUserPosts($userID);
   $userInfo = getUserInfo($_SESSION['username']);
 
-  if(createUpvote($userID, $_POST['postid']))
-  {
-     echo getPostUpvotes($_POST['postid']);
+  $comments = getComments($postID);
+  foreach ($comments as $comment) {
+    echo $comment['description'];
   }
 
 ?>

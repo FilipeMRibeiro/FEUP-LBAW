@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 19:11:46
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 03:02:17
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9637623057545d52c31b41-94834966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '363a66604dd7069c7c5f616706b460af1a030dce' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl',
-      1 => 1464282923,
+      1 => 1465261333,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_57545d52c4d3a7_08525482',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57545d52c4d3a7_08525482')) {function content_57545d52c4d3a7_08525482($_smarty_tpl) {?>  <body>
     <nav class="navbar navbar-default">
@@ -34,9 +34,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" action="../pages/search.php" role="search" method="post">
             <div class="form-group">
-              <input type="text" class="form-control search-input" placeholder="Search">
+              <input type="text" name="search-input" class="form-control search-input" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
