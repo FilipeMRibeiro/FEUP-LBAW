@@ -537,13 +537,59 @@
     return $stmt->execute(array($user, $post, $description));
   }
 
+  function getEventName($eventID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name
+                            FROM Event
+                            WHERE eventID = ?");
 
+    $stmt->execute(array($eventID));
+
+    return $stmt->fetch();
+  }
+
+  function getGroupName($GroupID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT name
+                            FROM Community
+                            WHERE communityID = ?");
+
+    $stmt->execute(array($GroupID));
+
+    return $stmt->fetch();
+  }
+
+  function getGroupDescription($GroupID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT description
+                            FROM Community
+                            WHERE communityID = ?");
+
+    $stmt->execute(array($GroupID));
+
+    return $stmt->fetch();
+  }
+
+  function getEventDescription($eventID)
+  {
+    global $conn;
+    $stmt = $conn->prepare("SELECT description
+                            FROM Event
+                            WHERE eventID = ?");
+
+    $stmt->execute(array($eventID));
+
+    return $stmt->fetch();
+  }
 
   function createGroup($userID, $name, $description, $date)
   {
 	  global $conn;
 	  $stmt = $conn->prepare("INSERT INTO Community (userID, name, description, textSearch) VALUES (?, ?, ?, ?)");
-	  $textSearch = $name . $description;
+	  $textSearch = $name . " " . $description;
 
 	  return $stmt->execute(array($userID, $name, $description, $textSearch));
   }
@@ -610,7 +656,7 @@
   {
 	  global $conn;
 	  $stmt = $conn->prepare("INSERT INTO Event (userID, name, description, date, local, maxparticipants, textSearch) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	  $textSearch = $name . $description . $local;
+	  $textSearch = $name ." ". $description. " " . $local;
 
 	  return $stmt->execute(array($userID, $name, $description, $date, $local, $maxParticipants, $textSearch));
   }

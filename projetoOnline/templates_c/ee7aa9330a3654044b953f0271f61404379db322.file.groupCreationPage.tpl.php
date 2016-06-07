@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:29:11
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 13:17:25
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/groupCreationPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4345104625756a1f7d0ac12-10029434%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ee7aa9330a3654044b953f0271f61404379db322' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/groupCreationPage.tpl',
-      1 => 1465291070,
+      1 => 1465298232,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_5756a1f7e23cd1_57390300',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5756a1f7e23cd1_57390300')) {function content_5756a1f7e23cd1_57390300($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
 
   </head>
 
@@ -55,7 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       				<img src="../images/logo.png" alt="logo" class="img-responsive" />
               <div class="group-info">
                 <input type="name" name="name" required class="form-control name" placeholder="Group Name" />
-				<input type="description" name="description" required class="form-control description" placeholder="Group Description" />
+				        <input type="description" name="description" required class="form-control description" placeholder="Group Description" />
               </div>
       				<button type="submit" name="go" class="btn btn-primary btn-block">Create Group</button>
       				<a href="showFeedPage.php">Cancel</a>
@@ -66,7 +66,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../javascript/validateInput.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

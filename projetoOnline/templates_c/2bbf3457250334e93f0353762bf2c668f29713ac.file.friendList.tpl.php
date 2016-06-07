@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 19:14:04
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 13:44:08
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/friendList.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:179983400957545ddc2d6f22-78084272%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bbf3457250334e93f0353762bf2c668f29713ac' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/friendList.tpl',
-      1 => 1463125547,
+      1 => 1465299843,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_57545ddc37efc6_96942360',
   'variables' => 
   array (
     'friends' => 0,
     'friend' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57545ddc37efc6_96942360',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_57545ddc37efc6_96942360')) {function content_57545ddc37efc6_96942360($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -50,20 +50,23 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="col-lg-12 panel panel-default">
           <h2 class="panel-heading"> Friends </h2>
           <div class="row">
-            <div class="col-lg-4 panel-content">
+            <div class="col-lg-12 panel-content">
               <div class="row">
                 <?php  $_smarty_tpl->tpl_vars['friend'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['friend']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['friends']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['friend']->key => $_smarty_tpl->tpl_vars['friend']->value) {
 $_smarty_tpl->tpl_vars['friend']->_loop = true;
 ?>
-                <div class="col-lg-5 vcenter">
-                  <img src="../images/defaultProfilePicture.png" style="width: 150px; height: 150px;"/>
-                </div>
-                <div class="col-lg-6 vcenter">
-                  <p><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['friend']->value['username'];?>
+                <div class="col-lg-3">
+                  <div class="col-lg-5 vcenter">
+                    <img src="../uploads/profile-picture/<?php echo $_smarty_tpl->tpl_vars['friend']->value['username'];?>
+" style="height:100px; width:100px;" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+                  </div>
+                  <div class="col-lg-6 vcenter">
+                    <p><a href="showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['friend']->value['username'];?>
 "> <?php echo $_smarty_tpl->tpl_vars['friend']->value['username'];?>
  </p>
+                  </div>
                 </div>
                 <?php } ?>
               </div>

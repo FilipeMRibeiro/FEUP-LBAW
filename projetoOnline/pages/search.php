@@ -10,16 +10,30 @@
 
   $searchUsers = searchUsers($search);
 
-  echo current($searchUsers);
+  foreach($searchUsers as &$user)
+  {
+    $user['username'] = current(getUsername($user['userid']));
+  }
 
   $searchEvents = searchEvents($search);
 
-  echo current($searchEvents);
+  foreach($searchEvents as &$event)
+  {
+    $event['name'] = current(getEventName($event['eventid']));
+    $event['description'] = current(getEventDescription($event['eventid']));
+  }
 
   $searchGroups = searchGroups($search);
 
-  echo current($searchGroups);
+  foreach($searchGroups as &$group)
+  {
+    $group['name'] = current(getGroupName($group['communityid']));
+    $group['description'] = current(getGroupDescription($group['communityid']));
+  }
 
-  echo 'cenas';
+  $smarty->assign('users', $searchUsers);
+  $smarty->assign('events', $searchEvents);
+  $smarty->assign('groups', $searchGroups);
+  $smarty->display('users/search.tpl');
 
 ?>

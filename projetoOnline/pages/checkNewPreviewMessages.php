@@ -18,7 +18,6 @@
       echo '<div chat-box'.$chat['chatid'].'">
         <div class="row message-box">
           <div class="col-lg-3 vcenter profile-picture">
-            <img src="../images/defaultProfilePicture.png"/>
           </div>
           <div class="col-lg-8 vcenter last-message">
             <p class="profile-name">' . $chat['name'] .'</p>

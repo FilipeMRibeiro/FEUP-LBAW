@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:31:55
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 13:44:27
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/eventCreationPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21068417725756a29b190d54-30445355%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2e178b8c2359f2b1b19fc3baaa250b91b24972e0' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/eventCreationPage.tpl',
-      1 => 1465291070,
+      1 => 1465298277,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.15',
   'unifunc' => 'content_5756a29b224220_76229289',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5756a29b224220_76229289')) {function content_5756a29b224220_76229289($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
@@ -68,7 +68,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../javascript/validateInput.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>

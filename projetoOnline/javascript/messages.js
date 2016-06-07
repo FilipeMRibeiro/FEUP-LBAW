@@ -1,6 +1,6 @@
 var chatID;
-setInterval(checkMessages, 300);
-setInterval(checkPreview, 300);
+setInterval(checkMessages, 100);
+setInterval(checkPreview, 100);
 
 var $chatbox = $('.chat-box');
 

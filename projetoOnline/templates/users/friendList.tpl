@@ -23,14 +23,16 @@
         <div class="col-lg-12 panel panel-default">
           <h2 class="panel-heading"> Friends </h2>
           <div class="row">
-            <div class="col-lg-4 panel-content">
+            <div class="col-lg-12 panel-content">
               <div class="row">
                 {foreach $friends as $friend}
-                <div class="col-lg-5 vcenter">
-                  <img src="../images/defaultProfilePicture.png" style="width: 150px; height: 150px;"/>
-                </div>
-                <div class="col-lg-6 vcenter">
-                  <p><a href="showProfilePage.php?username={$friend['username']}"> {$friend['username']} </p>
+                <div class="col-lg-3">
+                  <div class="col-lg-5 vcenter">
+                    <img src="../uploads/profile-picture/{$friend.username}" style="height:100px; width:100px;" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+                  </div>
+                  <div class="col-lg-6 vcenter">
+                    <p><a href="showProfilePage.php?username={$friend.username}"> {$friend.username} </p>
+                  </div>
                 </div>
                 {/foreach}
               </div>

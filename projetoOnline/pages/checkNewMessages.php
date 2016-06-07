@@ -23,7 +23,6 @@
 
     echo   '<span>' . '<span class="non-selected">'. $chat['chatid'] .'</span><div class="row message">
         <div class="col-lg-1 message-profile-picture">
-          <img src="../images/defaultProfilePicture.png"/>
         </div>
         <div class="col-lg-10 message-content">
           <p class="profile-name">' . $message['username'] . '</p>
