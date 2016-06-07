@@ -23,6 +23,8 @@
             <li><a href="showOwnProfile.php">Profile</a></li>
             <li><a href="showFriendList.php">Friends</a></li>
             <li><a href="showMessagesPage.php">Messages</a></li>
+			<li><a href="showGroups.php">Groups</a></li>
+			<li><a href="showEvents.php">Events</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

@@ -64,6 +64,25 @@
 
     return $stmt->execute(array($userID, $description, $privacy));
   }
+  
+  function createGroupPost($userID, $description, $privacy, $groupID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Post (userID, description, privacy, communityID)
+								VALUES (?, ?, ?, ?)");
+								
+	return $stmt->execute(array($userID, $description, $privacy, $groupID));
+  }
+  
+  function createEventPost($userID, $description, $privacy, $eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Post (userID, description, privacy, eventID)
+								VALUES (?, ?, ?, ?)");
+								
+	return $stmt->execute(array($userID, $description, $privacy, $eventID));
+  }
+  
 
   function getUserPosts($userID)
   {
@@ -82,7 +101,7 @@
   function getLastPost($userID)
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT *, User_user.username
+    $stmt = $conn->prepare("SELECT description, date::timestamp(0), User_user.username
                             FROM Post
                             INNER JOIN User_user ON (User_user.userID = Post.userID)
                             WHERE Post.userID = ?
@@ -96,7 +115,7 @@
   function getAllPosts()
   {
     global $conn;
-    $stmt = $conn->prepare("SELECT *, User_user.username
+    $stmt = $conn->prepare("SELECT description, date::timestamp(0), User_user.username
                             FROM Post
                             INNER JOIN User_user ON (User_user.userID = Post.userID)
                             ORDER BY postID DESC");
@@ -161,6 +180,48 @@
 
     return $stmt->execute(array($senderID, $receiverID, 0));
   }
+  
+  function hasjoined($userID, $groupID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT communityID
+								FROM User_Community
+								WHERE userID = ?
+								AND communityID = ?");
+	  $stmt->execute(array($userID, $groupID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+   function joinGroup($userID, $groupID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO User_Community(userID, communityID)
+								VALUES (?, ?)");
+								
+	  return $stmt->execute(array($userID, $groupID));
+  }
+  
+  function hasjoinedevent($userID, $eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT eventID
+								FROM Participation
+								WHERE userID = ?
+								AND eventID = ?");
+	  $stmt->execute(array($userID, $eventID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+   function joinEvent($userID, $eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Participation(userID, eventID)
+								VALUES (?, ?)");
+								
+	  return $stmt->execute(array($userID, $eventID));
+  }
 
   function acceptFriendRequest($senderID, $receiverID)
   {
@@ -185,6 +246,7 @@
   function sendMessage($chatID, $userID, $description)
   {
     global $conn;
+   
     $stmt = $conn->prepare("INSERT INTO Message (chatID, userID, description)
                             VALUES (?, ?, ?)");
 
@@ -438,4 +500,208 @@
 
     return $stmt->execute(array($user, $post, $description));
   }
+
+ 
+  
+  function createGroup($userID, $name, $description, $date)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Community (userID, name, description, textSearch) VALUES (?, ?, ?, ?)");
+	  $textSearch = $name . $description;
+	    
+	  return $stmt->execute(array($userID, $name, $description, $textSearch));
+  }
+  
+  function getCreatedCommunities($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT communityID, name, description
+								FROM Community
+								WHERE userID = ?");
+								
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+
+  function getJoinedCommunities($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT Community.communityID, Community.name, description, username
+								FROM Community, User_Community, User_user
+								WHERE Community.userID = User_user.userID
+								AND Community.communityID = User_Community.communityID
+								AND User_Community.userID = ?");
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+  function createEvent($userID, $name, $description, $date, $local, $maxParticipants)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Event (userID, name, description, date, local, maxparticipants, textSearch) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	  $textSearch = $name . $description . $local;
+	    
+	  return $stmt->execute(array($userID, $name, $description, $date, $local, $maxParticipants, $textSearch));
+  }
+  
+  function getCreatedEvents($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT eventID, name, description, date, local, maxParticipants
+								FROM Event
+								WHERE Event.userID = ?");
+								
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+
+  function getJoinedEvents($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT Event.eventID, Event.name, Event.description, User_user.username, Event.date, Event.local, Event.maxParticipants
+								FROM Event, Participation, User_user
+								WHERE Event.userID = User_user.userID
+								AND Event.eventID = Participation.eventID
+								AND Participation.userID = ?");
+	  $stmt->execute(array($userID));
+	  
+	  return $stmt->fetchAll();
+  }
+ 
+  function getGroupPosts($groupID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT User_user.username, Post.date, Post.description
+								FROM Post, User_user
+								WHERE Post.userID = User_user.userID
+								AND Post.communityID = ?");
+	  $stmt->execute(array($groupID));
+	  
+	  return $stmt->fetchAll();
+  }
+ 
+  function getGroupInfo($groupID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT User_user.username, Community.description, Community.name
+								FROM Community, User_user
+								WHERE Community.userid = User_user.userID
+								AND Community.communityid = ?");
+								
+	$stmt->execute(array($groupID));
+	  
+	return $stmt->fetch();	
+  }
+  
+  function getEventPosts($eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT User_user.username, Post.date, Post.description
+								FROM Post, User_user
+								WHERE Post.userID = User_user.userID
+								AND Post.eventID = ?
+								ORDER BY Post.date DESC");
+	  $stmt->execute(array($eventID));
+	  
+	  return $stmt->fetchAll();
+  }
+ 
+  function getEventInfo($eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT User_user.username, Event.description, Event.name, Event.date, Event.local, Event.maxParticipants
+								FROM Event, User_user
+								WHERE Event.userid = User_user.userid
+								AND Event.eventid = ?");
+								
+	$stmt->execute(array($eventID));
+	  
+	return $stmt->fetch();	
+  }
+  
+  function getEventAwards($eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT Badge.description, User_user.username
+								FROM Badge, Participation, User_user
+								WHERE Participation.eventID = ?
+								AND Participation.userID = User_user.userID
+								AND Participation.badgeID = Badge.badgeID");
+	  $stmt->execute(array($eventID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+  function getEventMembers($eventID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT User_user.username
+								FROM User_user, Participation
+								WHERE Participation.eventID = ?
+								AND Participation.badgeID IS NULL
+								AND User_user.userID = Participation.userID");
+								
+	  $stmt->execute(array($eventID));
+	  
+	  return $stmt->fetchAll();
+  }
+  
+  function createBadge($description)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("INSERT INTO Badge (description)
+								VALUES (?)");
+								
+	  return $stmt->execute(array($description));  
+  }
+ 
+  function getLastBadgeID()
+  {
+	  global $conn;
+	  $stmt=$conn->prepare("SELECT MAX(badgeID) FROM Badge");
+	  $stmt->execute();
+	  
+	  return $stmt->fetch();
+  }
+  
+  function getLastUsername()
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT username	
+										FROM User_user
+										ORDER BY userID DESC");
+	  $stmt->execute();
+	  
+	  return $stmt->fetch();
+  }
+  
+  function updateParticipation($badgeID, $eventID, $userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("UPDATE Participation
+								SET badgeID = ?
+								WHERE eventID = ?
+								AND userID = ?");
+	  
+	  return $stmt->execute(array($badgeID, $eventID, $userID));
+  }
+  
+  function getUserAwards($userID)
+  {
+	  global $conn;
+	  $stmt = $conn->prepare("SELECT Badge.description, Event.name
+										FROM  Badge, Event, Participation
+										WHERE Participation.userID = ?
+										AND Participation.badgeID IS NOT NULL
+										AND Participation.eventID = Event.eventID
+										AND Participation.badgeID = Badge.badgeID");
+		
+		$stmt->execute(array($userID));
+		
+		return $stmt->fetchAll();
+  }
+ 
 ?>

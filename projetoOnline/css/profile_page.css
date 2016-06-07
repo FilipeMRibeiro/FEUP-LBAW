@@ -135,3 +135,15 @@ body {
 .post-row {
   margin-top: 0%;
 }
+
+.award-row {
+	background-color: #f8f8f8;
+	border-radius: 10px;
+	padding: 5%;
+}
+
+.award-row img{
+	width: 30%;
+	float: left;
+	position: static;
+}
