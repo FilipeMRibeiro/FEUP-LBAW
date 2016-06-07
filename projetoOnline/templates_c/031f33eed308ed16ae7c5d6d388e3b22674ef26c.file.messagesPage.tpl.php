@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-05 22:41:49
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 14:26:13
          compiled from "/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/messagesPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21333691865751379c5d8552-76072919%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '031f33eed308ed16ae7c5d6d388e3b22674ef26c' => 
     array (
       0 => '/usr/users2/mieic2013/up201303834/public_html/projetoOnline/templates/users/messagesPage.tpl',
-      1 => 1465155513,
+      1 => 1465297559,
       2 => 'file',
     ),
   ),

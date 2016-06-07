@@ -22,12 +22,12 @@
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
-            <div class="col-lg-12 profile-image">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profile-image">
               <img src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 profile-information panel panel-default">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profile-information panel panel-default">
               <p><span class="profile-name"> {$userInfo.user_name} </span> </p>
               <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
               <p><i class="fa fa-birthday-cake fa-lg"> {$userInfo.birthday} </i></p>
@@ -142,9 +142,9 @@
           {/foreach}
 
         </div>
-        <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
+        <div class="col-lg-3 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 activities-awards-column">
            <div class="row">
-            <div class="col-lg-12 awards panel panel-default">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 awards panel panel-default">
               <h2 class="panel-heading">{$username}'s Awards</h2>
               <div class="panel-body">
 				{foreach $awards as $award}
