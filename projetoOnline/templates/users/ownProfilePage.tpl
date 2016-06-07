@@ -16,6 +16,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
 
     <title>Pawz</title>
+<<<<<<< HEAD
 
     <style>
       .dropdown-submenu {
@@ -38,6 +39,8 @@
       }
 
     </style>
+=======
+>>>>>>> remotes/origin/US30
   </head>
   {include file='common/headerAndNav.tpl'}
     <div class="container-fluid main">
@@ -45,12 +48,17 @@
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 profile-information-space">
           <div class="row">
             <div class="col-lg-12 profile-image">
+<<<<<<< HEAD
               <img src="../uploads/profile-picture/{$username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+=======
+              <img src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+>>>>>>> remotes/origin/US30
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 profile-information panel panel-default">
               <p><span class="profile-name"> {$userInfo.user_name} </span> </p>
+<<<<<<< HEAD
               {if $userInfo.gender_name eq 'Male'}
                 <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
               {/if}
@@ -60,11 +68,15 @@
               {if $userInfo.gender_name eq 'Other'}
                 <p><i class="fa fa-transgender-alt fa-lg"> {$userInfo.gender_name} </i></p>
               {/if}
+=======
+              <p><i class="fa fa-mars fa-lg"> {$userInfo.gender_name} </i></p>
+>>>>>>> remotes/origin/US30
               <p><i class="fa fa-birthday-cake fa-lg"> {$userInfo.birthday} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.species_name} </i></p>
               <p><i class="fa fa-paw fa-lg"> {$userInfo.race_name} </i></p>
               <p><i class="fa fa-map-marker fa-lg"> {$userInfo.city_name}, {$userInfo.country_name} </i></p>
             </div>
+<<<<<<< HEAD
               <div class="col-lg-12 profile-information panel panel-default">
                 <br>
                 <p><i class="fa fa-cog fa-lg"><a id="editProfileButton" data-toggle="modal" data-target="#myModal1"> Edit Profile </a></i></p>
@@ -153,6 +165,8 @@
                 </div>
               </div>
               <!-- -->
+=======
+>>>>>>> remotes/origin/US30
           </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-xs-12 feed-space">
@@ -161,7 +175,10 @@
               <form method="POST" class="submitPost" action="#" role="form">
                 <div class="col-lg-10 share">
                   <input type="text" name="description" required class="form-control" placeholder="Share Something...">
+<<<<<<< HEAD
                   <input type="file" name="image" id="imageToUpload" accept="image/*">
+=======
+>>>>>>> remotes/origin/US30
                 </div>
                 <div class="col-lg-2 share-button">
                   <button type="submit" id="submitButton" class="btn btn-info"> Share </button>
@@ -175,18 +192,26 @@
 
           <div class="row post-row">
             <div class="col-lg-3 post-profile-picture">
+<<<<<<< HEAD
               <img src="../uploads/profile-picture/{$post.username}" onerror="this.src='../images/defaultProfilePicture.png'" alt="Profile Picture"/>
+=======
+              <img class="img" src="../images/defaultProfilePicture.png" alt="Profile Picture"/>
+>>>>>>> remotes/origin/US30
             </div>
             <div class="col-lg-9 post-information">
               <div class="row">
                 <div class="col-lg-12 post-owner-description">
                   <h3><a href="showProfilePage.php?username={$username}"> {$username} </a></h3>
                   <p> {$post.description} </p>
+<<<<<<< HEAD
                   <img style="height:40%; width:60%;" onerror="this.style.display='none';" src="../uploads/post-picture/{$post.postid}">
+=======
+>>>>>>> remotes/origin/US30
                   <p style="color: grey;"> {$post.date}  </p>
                   <div id="pointer"></div>
                 </div>
               </div>
+<<<<<<< HEAD
             </div>
             <div class="col-lg-3">
             </div>
@@ -200,6 +225,20 @@
                   <button type="submit" id="downvoteButton" class="btn btn-info"> Liked </button>
                 {/if}
               </form></p>
+=======
+              <!--
+              <div class="row">
+                <div class="col-lg-12 post-image">
+                  <img class="img" src="../images/rex_and_bae.png" style="width: 90%;" alt="Image Posted"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 post-comments-likes">
+                  <p> <i class="fa fa-thumbs-up"></i> 10 <i class="fa fa-comment"></i> 4 </p>
+                </div>
+              </div>
+            -->
+>>>>>>> remotes/origin/US30
             </div>
           </div>
 
@@ -218,6 +257,7 @@
           </div>
           <div class="row">
             <div class="col-lg-12 awards panel panel-default">
+<<<<<<< HEAD
               <h2 class="panel-heading">Awards(3)</h2>
               <div class="panel-body">
                 <img src="../images/award.png" style="width: 30%" alt="Award"/>
@@ -225,6 +265,18 @@
                 <img src="../images/award.png" style="width: 30%" alt="Award"/>
                 <p></p>
                 <a href=#>See all</a>
+=======
+              <h2 class="panel-heading">My Awards</h2>
+              <div class="panel-body">
+				{foreach $awards as $award}
+				<div class="award-row">
+					<img src="../images/award.png" alt="Award"/>
+					<h3> {$award.description} </h3>
+					<h4> Event: {$award.name} </h4>
+				</div>
+				{/foreach}
+                <p></p>
+>>>>>>> remotes/origin/US30
               </div>
             </div>
           </div>
@@ -238,8 +290,11 @@
 
     <script src="../javascript/profilePost.js"></script>
     <script src="../javascript/addFriend.js"></script>
+<<<<<<< HEAD
     <script src="../javascript/editProfile.js"></script>
     <script src="../javascript/likePost.js"></script>
+=======
+>>>>>>> remotes/origin/US30
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
   </body>

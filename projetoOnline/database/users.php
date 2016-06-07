@@ -537,6 +537,39 @@
 	  return $stmt->fetchAll();
   }
   
+   
+  function getCommunitiesExamples($userID)
+  {
+	global $conn;
+
+	$stmt=$conn->prepare("SELECT DISTINCT(Community.communityID), name
+										FROM Community, User_Community
+										WHERE Community.userID = ?
+										OR (User_Community.communityID = Community.communityID
+										AND User_Community.userID = ?)
+										LIMIT 3");
+										
+	$stmt->execute(array($userID, $userID));
+	
+	return $stmt->fetchAll();
+  }
+  
+    function getEventsExamples($userID)
+  {
+	global $conn;
+
+	$stmt=$conn->prepare("SELECT DISTINCT(Event.eventID), name
+										FROM Event, Participation
+										WHERE Event.userID = ?
+										OR (Participation.eventID = Event.eventID
+										AND Participation.userID = ?)
+										LIMIT 3");
+										
+	$stmt->execute(array($userID, $userID));
+	
+	return $stmt->fetchAll();
+  }
+  
   function createEvent($userID, $name, $description, $date, $local, $maxParticipants)
   {
 	  global $conn;
@@ -703,5 +736,6 @@
 		
 		return $stmt->fetchAll();
   }
+ 
  
 ?>

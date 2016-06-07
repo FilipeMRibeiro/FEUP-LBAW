@@ -117,15 +117,18 @@
               </ul>
             </div>
           </div>
-          <div class="row">
+           <div class="row">
             <div class="col-lg-12 awards panel panel-default">
-              <h2 class="panel-heading">Awards(3)</h2>
+              <h2 class="panel-heading">{$username}'s Awards</h2>
               <div class="panel-body">
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
+				{foreach $awards as $award}
+				<div class="award-row">
+					<img src="../images/award.png" alt="Award"/>
+					<h3> {$award.description} </h3>
+					<h4> Event: {$award.name} </h4>
+				</div>
+				{/foreach}
                 <p></p>
-                <a href=#>See all</a>
               </div>
             </div>
           </div>
