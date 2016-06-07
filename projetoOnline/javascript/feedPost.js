@@ -39,6 +39,7 @@ $('.commentsPost').submit(function(e) {
       data: formData,
       success: function(html) {
         $('.comments-space' + postID).find('.comment-text').val('');
+        $('.comments-space' + postID).find('.new-comments').append(html);
       }
     });
   });

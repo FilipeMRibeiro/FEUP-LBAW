@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 03:02:17
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 11:23:38
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9637623057545d52c31b41-94834966%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '363a66604dd7069c7c5f616706b460af1a030dce' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/common/headerAndNav.tpl',
-      1 => 1465261333,
+      1 => 1465269130,
       2 => 'file',
     ),
   ),
@@ -44,6 +44,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <li><a href="showOwnProfile.php">Profile</a></li>
             <li><a href="showFriendList.php">Friends</a></li>
             <li><a href="showMessagesPage.php">Messages</a></li>
+			<li><a href="showGroups.php">Groups</a></li>
+			<li><a href="showEvents.php">Events</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">

@@ -71,7 +71,7 @@
             </div>
             <div class="col-lg-2">
               <p><form action="#" class="commentsPost" method="POST">
-                <p> <i class="fa fa-comment fa-lg"><span class="comments"> {$post.upvotes}</span> </i> </p>
+                <p> <i class="fa fa-comment fa-lg"><span class="comments"> {$post.numberOfComments}</span> </i> </p>
                 <span class="getPostID" style="display:none;">{$post.postid} </span>
                   <button type="submit" id="commentsButton" class="btn btn-info"> See Comments </button>
               </form></p>
@@ -82,8 +82,11 @@
                   <div class="row commentsDisplay">
                     <div class="col-lg-12 comment-owner-description">
                         {foreach $post.comments as $comment}
-                        <p><a href="../pages/showProfilePage.php?username={$post.username}"> {$comment.username} </a> {$comment.description} <p>
+                        <p><a href="../pages/showProfilePage.php?username={$comment.username}"> {$comment.username} </a> {$comment.description} </p>
                         {/foreach}
+                        <div class ="new-comments">
+
+                        </div>
                     </div>
                   </div>
                 </div>

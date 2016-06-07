@@ -10,4 +10,9 @@
   $postID = $_POST['postid'];
 
   createComment($userID, $postID, $description);
+
+  $comment = getLastComment($postID);
+
+  echo '<p><a href="../pages/showProfilePage.php?username=' . $comment['username'] . '"> '. $comment['username'] .' </a> ' . $comment['description'] . '</p>'
+
 ?>

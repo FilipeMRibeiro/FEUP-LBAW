@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-06 21:25:09
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:13:45
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77199056157545dde1043c5-44866905%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ff4aa5a524d431361df502e8d4921859a8e4b5ec' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/profilePage.tpl',
-      1 => 1465240862,
+      1 => 1465294421,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'userInfo' => 0,
     'posts' => 0,
     'post' => 0,
+    'awards' => 0,
+    'award' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -158,24 +160,25 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 
         </div>
         <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
-          <div class="row">
-            <div class="col-lg-12 activities panel panel-default">
-              <h2 class="panel-heading">Recent Activities</h2>
-              <ul class="panel-content">
-                <li>  Running </li>
-                <li> Hunting </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
+           <div class="row">
             <div class="col-lg-12 awards panel panel-default">
-              <h2 class="panel-heading">Awards(3)</h2>
+              <h2 class="panel-heading"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+'s Awards</h2>
               <div class="panel-body">
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
-                <img src="../images/award.png" style="width: 30%" alt="Award"/>
+				<?php  $_smarty_tpl->tpl_vars['award'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['award']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['awards']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['award']->key => $_smarty_tpl->tpl_vars['award']->value) {
+$_smarty_tpl->tpl_vars['award']->_loop = true;
+?>
+				<div class="award-row">
+					<img src="../images/award.png" alt="Award"/>
+					<h3> <?php echo $_smarty_tpl->tpl_vars['award']->value['description'];?>
+ </h3>
+					<h4> Event: <?php echo $_smarty_tpl->tpl_vars['award']->value['name'];?>
+ </h4>
+				</div>
+				<?php } ?>
                 <p></p>
-                <a href=#>See all</a>
               </div>
             </div>
           </div>

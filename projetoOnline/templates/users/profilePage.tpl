@@ -108,15 +108,6 @@
 
         </div>
         <div class="col-lg-3 col-lg-offset-1 activities-awards-column">
-          <div class="row">
-            <div class="col-lg-12 activities panel panel-default">
-              <h2 class="panel-heading">Recent Activities</h2>
-              <ul class="panel-content">
-                <li>  Running </li>
-                <li> Hunting </li>
-              </ul>
-            </div>
-          </div>
            <div class="row">
             <div class="col-lg-12 awards panel panel-default">
               <h2 class="panel-heading">{$username}'s Awards</h2>

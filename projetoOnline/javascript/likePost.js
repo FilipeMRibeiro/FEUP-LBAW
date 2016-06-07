@@ -2,6 +2,7 @@ $(function() {
   $(".likePost").submit(function(e) {
     e.preventDefault();
     var postid = $(this).find('.getPostID').text();
+    console.log(postid);
     var upvotesClass = $(this).find('.upvotes');
     var likeButton = $(this).find('#upvoteButton');
     var likedButton = $(this).find('#downvoteButton');

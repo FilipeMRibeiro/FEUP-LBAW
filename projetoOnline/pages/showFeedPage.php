@@ -20,6 +20,7 @@
       $post['liked'] = 0;
     }
     $post['comments'] = getComments($post['postid']);
+    $post['numberOfComments'] = getNumberOfComments($post['postid']);
   }
 
   $smarty->assign('posts', $posts);

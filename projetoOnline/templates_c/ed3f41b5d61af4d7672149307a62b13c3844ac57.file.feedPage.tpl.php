@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 05:10:10
+<?php /* Smarty version Smarty-3.1.15, created on 2016-06-07 12:48:15
          compiled from "/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28992985657545d52af0562-98124565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed3f41b5d61af4d7672149307a62b13c3844ac57' => 
     array (
       0 => '/usr/users2/mieic2013/up201303832/public_html/projetoOnline/templates/users/feedPage.tpl',
-      1 => 1465268994,
+      1 => 1465296492,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'posts' => 0,
     'post' => 0,
     'comment' => 0,
+    'groups' => 0,
+    'group' => 0,
+    'events' => 0,
+    'event' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -45,6 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <title>Pawz</title>
   </head>
+  <body>
   <?php echo $_smarty_tpl->getSubTemplate ('common/headerAndNav.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
     <div class="container-fluid main">
@@ -111,7 +116,7 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
             </div>
             <div class="col-lg-2">
               <p><form action="#" class="commentsPost" method="POST">
-                <p> <i class="fa fa-comment fa-lg"><span class="comments"> <?php echo $_smarty_tpl->tpl_vars['post']->value['upvotes'];?>
+                <p> <i class="fa fa-comment fa-lg"><span class="comments"> <?php echo $_smarty_tpl->tpl_vars['post']->value['numberOfComments'];?>
 </span> </i> </p>
                 <span class="getPostID" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['post']->value['postid'];?>
  </span>
@@ -129,11 +134,14 @@ $_smarty_tpl->tpl_vars['post']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['comment']->key => $_smarty_tpl->tpl_vars['comment']->value) {
 $_smarty_tpl->tpl_vars['comment']->_loop = true;
 ?>
-                        <p><a href="../pages/showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['post']->value['username'];?>
+                        <p><a href="../pages/showProfilePage.php?username=<?php echo $_smarty_tpl->tpl_vars['comment']->value['username'];?>
 "> <?php echo $_smarty_tpl->tpl_vars['comment']->value['username'];?>
  </a> <?php echo $_smarty_tpl->tpl_vars['comment']->value['description'];?>
- <p>
+ </p>
                         <?php } ?>
+                        <div class ="new-comments">
+
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -159,25 +167,40 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
           <div class="row">
             <div class="col-lg-12 groups panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading"> Groups </h2>
+              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showGroups.php"> My Groups </a> </h2>
               <div class="panel-content">
-                <ul>
-                  <li> <img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/> German Shepherds group </li>
-                  <li> <img class="img" src="../images/dog-group.jpg" style="width: 100%;"/> Dogs group </li>
-                </ul>
+				<?php  $_smarty_tpl->tpl_vars['group'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['group']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['groups']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['group']->key => $_smarty_tpl->tpl_vars['group']->value) {
+$_smarty_tpl->tpl_vars['group']->_loop = true;
+?>
+				<div class="group-row">
+					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
+					<h3><a href="../pages/showJoinedGroupPage.php?id=<?php echo $_smarty_tpl->tpl_vars['group']->value['communityid'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['group']->value['name'];?>
+ </a></h3>
+				 </div>
+				 <?php } ?>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 events panel panel-default">
-              <h2 style="text-align: center;" class="panel-heading">Events</h2>
-              <ul class="panel-content">
-                <li>
-                  <h4> Dogs Race </h4>
-                  <img src="../images/corrida-caes.jpg" style="width: 100%;"/>
-                  <p> Friday 20:00h, 18 March 2016 </p>
-                </li>
-              </ul>
+              <h2 style="text-align: center;" class="panel-heading"> <a href="../pages/showEvents.php"> My Events </a> </h2>
+              <div class="panel-content">
+                <?php  $_smarty_tpl->tpl_vars['event'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['event']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['events']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['event']->key => $_smarty_tpl->tpl_vars['event']->value) {
+$_smarty_tpl->tpl_vars['event']->_loop = true;
+?>
+				<div class="event-row">
+					<img class="img" src="../images/german_shepherd_group.JPG" style="width: 100%;"/>
+					<h3><a href="../pages/showJoinedEventPage.php?id=<?php echo $_smarty_tpl->tpl_vars['event']->value['eventid'];?>
+"> <?php echo $_smarty_tpl->tpl_vars['event']->value['name'];?>
+ </a></h3>
+				 </div>
+				 <?php } ?>
+              </div>
             </div>
           </div>
         </div>
